@@ -89,7 +89,7 @@
               <div class="card">
                 <div class="card-body bg-five text-center border-0 rounded dash-comman-box">
                   <div class="d-flex justify-content-center align-items-center">
-                    <a href="#" class="text-decoration-none w-100">
+                    <a href="{{ url('careerexplorer') }}" class="text-decoration-none w-100">
                       <img src="{{ asset('img/explore-icon.svg') }}" width="50px" height="auto">
                       <p class="card-text text-white fw-bold mb-0">Explore Careers</p>
                     </a>
@@ -106,11 +106,11 @@
 			if($cresultCount > 0) {
 				$crClass = 'bg-dark';
 				$crhref	=	route('careerpath'); 
-				$crimage = 'img/icon-eqaccelerator.png';
+				$crimage = 'img/icon-careerpath.png';
 			} else {
-				$cr = 'bg-gray';
+				$crClass = 'bg-gray';
 				$crhref	=	'javascript:void(0);'; 
-				$crimage = 'img/eq-icon.png';
+				$crimage = 'img/careerpath-icon.png';
 			}
 			?>
           <div class="row p-0">

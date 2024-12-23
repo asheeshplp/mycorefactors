@@ -758,7 +758,7 @@ function showContentcp(type) {
 		success: function(result) {
 			$('.loader').hide(); 
 			$('#myTabContent').html(result);
-			$('.nav-item a').removeClass('active');
+			$('.menu-btn a').removeClass('active');
 			if(type == 'introduction') {
 				$('#introductioncp a').addClass('active');
 				$('#careeroccupation .material-icons').eq(0).show();
@@ -909,7 +909,7 @@ function showContent(type) {
 				success: function(result) {
 					$('.loader').hide(); 
 					$('#myTabContent').html(result);
-					$('.nav-item a').removeClass('active');
+					$('.menu-btn a').removeClass('active');
 					// alert(type);
 					if(type == 'introduction') {
 						$('#introduction a').addClass('active');
