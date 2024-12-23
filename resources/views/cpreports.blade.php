@@ -160,9 +160,9 @@ $pdfPath = "";
                     <!-- Tab Content -->
                     <div class="col-md-9">
 						<div class="loader"></div>
-                      <div class="tab-content tabs-vertical" id="myTabContent">						
+						<div class="tab-content tabs-vertical" id="myTabContent">						
 						
-                      </div>
+						</div>
                     </div>
                   </div>
                   

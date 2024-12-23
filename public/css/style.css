@@ -1104,6 +1104,7 @@ span.glyphicon.glyphicon-chevron-down {
     background-image: url(../img/action-item-icon-hover.svg);
 }
 
+/*
 .loader {
     width: 35px;
     height: 35px;
@@ -1133,7 +1134,36 @@ span.glyphicon.glyphicon-chevron-down {
     animation: rotationBack 0.5s linear infinite;
     transform-origin: center center;
 }
+*/
 
+.loader {
+	margin-left:50%;
+  --s: 20px;
+  --g :5px;  
+  
+  width: calc(3*(1.353*var(--s) + var(--g)));
+  aspect-ratio: 3;
+  background:
+    linear-gradient(#6FC184 0 0) left/33% 100% no-repeat,
+    conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)),
+      #fff 135deg,#666 0 270deg,#aaa 0); 
+  background-blend-mode: multiply;
+  --_m:
+    linear-gradient(to bottom right,
+       #0000 calc(0.25*var(--s)),#000 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)),#0000 0),
+    conic-gradient(from -90deg at right var(--g) bottom var(--g),#000 90deg,#0000 0);
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  background-size:   calc(100%/3) 100%;
+  -webkit-mask-size: calc(100%/3) 100%;
+          mask-size: calc(100%/3) 100%;
+  -webkit-mask-composite: source-in;
+          mask-composite: intersect;
+  animation: l7 steps(3) 1.5s infinite;
+}
+@keyframes l7 {
+  to {background-position: 150% 0%}
+}
 .question-daily-inner .form-label {
     font-style: normal;
     font-weight: 600;
@@ -1567,7 +1597,7 @@ textarea.form-control {
 .tabs-vertical .nav-item.dropdown:hover >  li::before{
     display: none !important;
 }
-.tab-content{padding: 0 10px;}
+.tab-content{padding: 0 0px;}
 .tab-content h3, .tab-content h1{
     font-style: normal;
     font-weight: 700;
@@ -2227,6 +2257,7 @@ textarea.form-control {
         width: 70vw;
     }
 }
+/*
 .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
@@ -2238,7 +2269,7 @@ textarea.form-control {
     animation: spin 2s linear infinite;
     margin-left: 50%;
   }
-  
+*/ 
   @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
