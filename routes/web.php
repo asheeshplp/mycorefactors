@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function () {
 	Route::any('/externalresourceseq',[MyreportsController::class, 'externalresourceseq']);
 	Route::any('/externalresourcescp',[MyreportsController::class, 'externalresourcescp']);
 	Route::get('/careerpath',[MyreportsController::class, 'careerpath'])->name('careerpath');
+	Route::any('/careerexplorer',[DashboardController::class, 'careerexplorer'])->name('careerexplorer');
+	Route::post('/searchcareer',[DashboardController::class, 'searchcareer'])->name('searchcareer');
 });
 
 require __DIR__.'/auth.php';

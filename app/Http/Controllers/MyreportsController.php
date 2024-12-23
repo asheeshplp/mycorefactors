@@ -200,11 +200,6 @@ class MyreportsController extends Controller
 		}
 	}
 	
-	public function careerexplorer(Request $request) {
-		$postData 	= $request->all();
-		echo '<pre>'; print_r($postData); die;
-	}
-	
 	public function getreportcontent(Request $request) {
 		$survey = new Survey;
 		$finalArr = array();

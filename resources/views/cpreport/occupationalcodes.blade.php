@@ -100,7 +100,7 @@ if($dataCount>0 ){
 		<?php } ?>
 	  </table>
 	</div>
-	<p>You can search for more interests code : <a href="https://pro.corefactors.com/riasec/" target="_blank">https://pro.corefactors.com/riasec/</a></p>
+	<p>You can search for more interests code : <a href="{{ url('careerexplorer') }}">here</a></p>
 	<hr/>
 
 	<div class="btn-info d-flex justify-content-center gap-3">

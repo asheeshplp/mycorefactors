@@ -3,7 +3,7 @@
                             <h1>Career Exploration</h1> 
                             <p>Find occupations in the Occupational Code Appendix at the end of this report that seem interesting to you and fit your code (or
                               avariation of the code with close letters switched). List a few of the occupations in the space here</p>
-                              <p>You can explore occupations online using your GIA code here: <a href="https://pro.corefactors.com/riasec/" target="_blank">  https://pro.corefactors.com/riasec/</a>
+                              <p>You can explore occupations online using your GIA code here: <a href="{{ url('careerexplorer') }}">here</a>
                               </p>
 
                               <div class="table-responsive">

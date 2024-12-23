@@ -31,7 +31,7 @@ $pdfPath = "";
                 <div class="card card-bg-gray">
                   <div class="card-body">
                     <div class="btn-info d-flex gap-3">
-                        <a href="{{ url('myeqreport') }}" id="myreport" class="active btn-info-comman uppertab">My Report</a>
+                        <a href="{{ url('careerpath') }}" id="careerpath" class="active btn-info-comman uppertab">My Report</a>
                         <a href="{{ url('careerexplorer') }}" id="careerexplorer" class="btn-info-comman uppertab">Career Explorer</a>                        
                         <a href="{{ url('externalresourcescp') }}" id="externalresourcescp" class="btn-info-comman uppertab">External Resources</a>
                         <a href="{{ $resultsArr['firstPdfpath']; }}" id="downloadbtn" target="_blank" class="btn-info-comman btn-next float-end ms-auto">Download PDF Report</a>

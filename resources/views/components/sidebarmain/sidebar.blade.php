@@ -8,7 +8,7 @@
 			  </a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" aria-current="page" href="#">
+			  <a class="nav-link" aria-current="page" href="{{ url('careerexplorer') }}">
 				<i class="material-icons">explore</i>
 				<span class="nav-text">Explore Career</span>
 			  </a>
