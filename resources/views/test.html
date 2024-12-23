@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="nkPW95wytJHb86YCkPH0kJIyN0Cwv41ef6rKA5YR">
+
+        <title>MyCoreFactors</title>
+
+        <!-- Fonts -->        
+		<link href="http://127.0.0.1:8080/mycorefactors/public/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="http://127.0.0.1:8080/mycorefactors/public/css/style.css" rel="stylesheet" />
+		<link href="http://127.0.0.1:8080/mycorefactors/public/plugin/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+		
+		<link href="http://127.0.0.1:8080/mycorefactors/public/plugin/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+		
+    /*to prevent Firefox FOUC, this must be here*/
+    let FF_FOUC_FIX;
+  </script>
+    </head>
+    <body>
+		<header class="navbar sticky-top flex-nowrap shadow" id="top-header">
+		<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
+		  <img src="http://127.0.0.1:8080/mycorefactors/public/img/logo.svg" width="149" height="auto" />
+		</a>
+
+    <div class="col-md-9 col-lg-10 d-flex justify-content-end relative px-3">
+      <div class="header-right d-flex gap-3 flex-wrap">
+        <a href="#">
+          <img src="http://127.0.0.1:8080/mycorefactors/public/img/chatbot.svg" width="24px" height="auto" />
+        </a>
+        <a href="#">
+          <img src="http://127.0.0.1:8080/mycorefactors/public/img/circle-tick-icon.svg" width="24px" height="auto" />
+        </a>
+        <a href="#">
+          <img src="http://127.0.0.1:8080/mycorefactors/public/img/help-icon.svg" width="24px" height="auto" />
+        </a>
+        <div class="dropdown notification">
+          <a href="#" class="notification-icon" id="notificationDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="http://127.0.0.1:8080/mycorefactors/public/img/notification-icon.svg" width="24px" height="auto" alt="Notifications" />
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end p-3 dropdown-submenu-container"
+            aria-labelledby="notificationDropdown">
+            <li class="d-flex align-items-center w-100 justify-content-between border-bottom pb-2"><span
+                class="dropdown-header-text d-flex gap-2 align-items-center">Notifications <span
+                  class="rounded-circle bg-danger fs-6 text-white">2+</span></span><a class="comman-link link-underline"
+                href="notification.html">View all</a></li>
+            <li class="p-0"><a class="dropdown-item p-0" href="#"><img src="http://127.0.0.1:8080/mycorefactors/public/img/chatbot.svg" width="20px"
+                  height="auto"> Hey Sam, it looks like you often miss your journal entry on Thursdays. Would you like
+                to set a new reminder time?</a></li>
+            <li class="p-0"><a class="dropdown-item p-0" href="#"><img src="http://127.0.0.1:8080/mycorefactors/public/img/notification-drop-icon.svg"
+                  width="20px" height="auto"> Hey Sam, it looks like you often miss your journal entry on Thursdays.
+                Would you like to set a new reminder time?</a></li>
+            <li class="p-0"><a class="dropdown-item p-0" href="#"><img src="http://127.0.0.1:8080/mycorefactors/public/img/chatbot.svg" width="20px"
+                  height="auto"> Hey Sam, it looks like you often miss your journal entry on Thursdays. Would you like
+                to set a new reminder time?</a></li>
+          </ul>
+        </div>
+        <div class="dropdown user-profile">
+          <div class="user-profile-icon" id="userProfileDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span class="material-icons fw-semibold"></span>
+          </div>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userProfileDropdown">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="http://127.0.0.1:8080/mycorefactors/public/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+    Logout
+</a>
+<li>
+<form id="logout-form" action="http://127.0.0.1:8080/mycorefactors/public/logout" method="POST" style="display: none;">
+    <input type="hidden" name="_token" value="nkPW95wytJHb86YCkPH0kJIyN0Cwv41ef6rKA5YR" autocomplete="off">
+</form>
+          </ul>
+        </div>
+        <button class="navbar-toggler position-relative d-md-none collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+           <div class="container-fluid">
+			<div class="row"> 
+				
+				 <nav id="sidebarMenu" class="d-md-block collapse sidebar">
+	<div class="position-sticky">
+		<ul class="nav flex-column sidebar-menu">
+			<li class="nav-item">
+			  <a class="nav-link " aria-current="page" href="http://127.0.0.1:8080/mycorefactors/public/dashboard">
+				<i class="material-icons">assessment</i>
+				<span class="nav-text">Dashboard</span>
+			  </a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" aria-current="page" href="#">
+				<i class="material-icons">explore</i>
+				<span class="nav-text">Explore Career</span>
+			  </a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link pe-cursor " aria-current="page" onclick="toggleSubmenu(event)">
+				<i class="material-icons">book</i>
+				<span class="nav-text">My Journal</span>
+				<i class="material-icons dropdown-icon">arrow_drop_down</i>
+			  </a>
+			  <ul class="nav flex-column submenu " style="display: none">
+				<li class="nav-item">
+				  <a class="nav-link" href="http://127.0.0.1:8080/mycorefactors/public/myjournal">
+					<span class="nav-text">View Journal</span>
+				  </a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="main-journal-emty.html">
+					<span class="nav-text">Add Entry</span>
+				  </a>
+				</li>
+			  </ul>
+			</li>
+		</ul>
+	</div>
+</nav>	  
+            
+                <main class="col-md-12 ms-sm-auto col-lg-12 pb-5" id="main-wrapper">
+          <div class="container-fluid px-3">
+            <div class="note-container-accessment justify-content-center">
+              <img src="../assets/img/eq-logo.svg" width="58px" height="auto" />
+              <h1 class="mb-0 text-white">EQ Accelerator</h1>
+            </div>
+          </div>
+
+          <div class="container-fluid px-3 mt-3">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-bg-gray">
+                  <div class="card-body">
+                    <div class="btn-info d-flex gap-3">
+                        <a href="#" class="active btn-info-comman">My Report</a>
+                        <a href="#" class="btn-info-comman">Explore EQ</a>
+                        <a href="#" class="btn-info-comman">Watch Videos</a>
+                        <a href="#" class="btn-info-comman">External Resources</a>
+                        <!--<a href="#" class="btn-info-comman">EQ Architect</a> -->
+                        <a href="#" class="btn-info-comman btn-next float-end ms-auto">Download PDF Report</a>
+                    </div>
+                    <div class="mt-4 mb-4">
+                      <div class="title-comman">
+                        <div class="dropdown postion-relative d-flex gap-1">
+                          Report Date:
+                          <button class="btn boder-0 btn-link text-decoration-none dropdown-toggle title-comman p-0" type="button" id="reportDateDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                             October 14, 2023
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="reportDateDropdown">
+                            <li><a class="dropdown-item" href="#">October 14, 2023</a></li>
+                            <li><a class="dropdown-item" href="#">October 15, 2023</a></li>
+                            <li><a class="dropdown-item" href="#">October 16, 2023</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  <div class="row">
+                    <!-- Vertical Nav Tabs -->
+                    <div class="col-md-3">
+                      <ul class="nav nav-tabs flex-column tabs-vertical" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <a class="nav-link active border-0" href="index.html">Introduction</a>
+                        </li>
+                        <!-- <li class="nav-item" role="presentation">
+                          <a class="nav-link border-0" id="understanding-tab" href="understanding-self-report.html">Understanding Self-Report</a>
+                        </li> -->
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="understanding-self-report.html" id="equnderstandingTab">Understanding Self-Report</a>
+                          <ul class="dropdown-menu" aria-labelledby="equnderstandingTab">
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#overall-picture', '#equnderstandingTab', '#eq-understanding-content')">An Overall Picture</a>
+                              </li>
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#skills-each-dimension', '#equnderstandingTab', '#eq-understanding-content')">Skills in Each Dimension</a>
+                              </li>
+                          </ul>
+                      </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="eq-skills.html" id="eqSkillsTab">EQ Skills</a>
+                            <ul class="dropdown-menu" aria-labelledby="eqSkillsTab">
+                                <li>
+                                    <a class="dropdown-item" onclick="scrollToContent('#overall-picture', '#eqSkillsTab', '#eq-skills-content')">An Overall Picture</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" onclick="scrollToContent('#skills-each-dimension', '#eqSkillsTab', '#eq-skills-content')">Skills in Each Dimension</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="interpreting-your-report.html" id="interpretingTab">Interpreting Your Report</a>
+                          <ul class="dropdown-menu" aria-labelledby="interpretingTab">
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#domain-scores', '#interpretingTab', '#eq-interpreting-content')">Domain Scores</a>
+                              </li>
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#effectiveness-scores', '#interpretingTab', '#eq-interpreting-content')">Effectiveness Scores </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" onclick="scrollToContent('#importance-scores', '#interpretingTab', '#eq-interpreting-content')">Importance Scores</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" onclick="scrollToContent('#gap-scores', '#interpretingTab', '#eq-interpreting-content')">Gap Scores </a>
+                          </li>
+                          </ul>
+                      </li>
+                       
+                        
+                        <li class="nav-item" role="presentation">
+                            <a href="your-report-result.html" class="nav-link border-0 " id="reported-results-tab">Your Reported Results</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="eq-dimension-competencies.html" id="selfAwarenessTab">Specific EQ Dimension Competencies and Ratings</a>
+                          <ul class="dropdown-menu" aria-labelledby="selfAwarenessTab">
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#SelfAwarenessPerceptions', '#selfAwarenessTab', '#self-awareness')">Self-Awareness Perceptions</a>
+                              </li>
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#SelfRegulation', '#selfAwarenessTab', '#self-awareness')">Self-Regulation</a>
+                              </li>
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#OtherAwarenessPerceptions', '#selfAwarenessTab', '#self-awareness')">Other Awareness Perceptions</a>
+                              </li>
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#OtherEngagementRelating', '#selfAwarenessTab', '#self-awareness')">Other Engagement in Relating Well</a>
+                              </li>
+                          </ul>
+                      </li>
+                      
+                      
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="eq-tips-improve.html" id="selfEffectivenessTab">Action Tips to Improve EQ Effectiveness</a>
+                          <ul class="dropdown-menu" aria-labelledby="actionTipsTab">
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#self-actualization', '#selfEffectivenessTab', '#self-effectiveness')">Self-Awareness Perceptions</a>
+                              </li>
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#optimism', '#selfEffectivenessTab', '#self-effectiveness')">Self-Regulation</a>
+                              </li>
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#reading-nonverbal', '#selfEffectivenessTab', '#self-effectiveness')">Other Awareness Perceptions</a>
+                              </li>
+                              <li>
+                                  <a class="dropdown-item" onclick="scrollToContent('#reading-nonverbal-engagement', '#selfEffectivenessTab', '#self-effectiveness')">Other Engagement in Relating Well</a>
+                              </li>
+                          </ul>
+                    </li>
+
+                        <li class="nav-item" role="presentation">
+                            <a href="eq-references.html" class="nav-link border-0" id="references-tab">References</a>
+                        </li>
+                      </ul>
+                    </div>
+                  
+                    <!-- Tab Content -->
+                    <div class="col-md-9">
+                      <div class="tab-content tabs-vertical" id="myTabContent">
+                        <div class="tab-pane fade show active" id="introduction" role="tabpanel" aria-labelledby="home-tab">
+                          <div class="tab-content py-4 px-4">
+                            <div class="text-center mb-4"><img src="../assets/img/eq-logo.png" width="auto" class="m-auto" height="auto" /></div>
+                            <h3>Introduction</h3>
+                            <p>Emotional Intelligence (EQ) is viewed as an essential capability of individuals seeking to lead and manage others, and for personal effectiveness and well-being. From the first scientific study (The Expression of the Emotions in Man and Animals, Darwin) to current behavioral and neuroscience studies (see the references at the end of the report), the role of emotions in our well-being and work relationships is staggering. Essentially, emotional intelligence is “the capacity to be aware of, control, and express one's emotions, and to handle interpersonal relationships judiciously and empathetically.</p>
+                            <p> In many ways, our emotions are our first language. We had emotions before we had words. From our earliest awareness, our emotions were demonstrated through body and facial expressions. As we grew older, we learned some basic words to label our emotions, and now as adults, we know that understanding and managing our emotions are essential skills to be successful at home and on the job. Emotions are the energy threads that run through all human experience.</p>
+                            <p> Based on decades of research, all forms of intelligence are reflective of our capacities to perceive and judge or manage, both our individual reactions and the circumstances in front of us. Emotional intelligence is no different. We must make sure and polish those skills that help make our perceptions clear and our judgments sounder as it relates to identifying and using our emotional energies. This report provides a WHAT, SO WHAT, and NOW WHAT approach to enriching your EQ. WHAT is about the specifics of your rating. SO WHAT is about clarifying which competencies are most important to work on. NOW WHAT is the purpose of the action tips designed to guide you going forward.</p>
+                            <hr/>
+
+                            <div class="btn-info d-flex justify-content-center gap-3">
+                                <a class=" btn-info-comman btn-previous disabled">Previous</a>
+                                <a class="btn-info-comman btn-next" href="understanding-self-report.html">Next</a>
+                            </div>
+                          </div>
+                        </div>                        
+                      </div>
+                    </div>
+                  </div>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+    </div>
+            
+			
+			<!-- Add reminder popup -->
+  <div class="modal fade" id="addReminder-popup" aria-hidden="true" aria-labelledby="addReminder-popup"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-between">
+        <h3 class="modal-title">Add New Reminder</h3>
+        <button type="button" class="text-black bg-transparent border-0 d-flex justify-content-end"
+          data-bs-dismiss="modal" aria-label="Close"><i class="material-icons">close</i></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-floating mb-0 d-flex flex-wrap justify-content-between align-items-center mb-2">
+          <h5>Set Reminder for:</h5>
+          <div class="select-reminder-type d-flex  mb-st-0 mt-3 flex-wrap">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" checked type="radio" name="reminderType" id="byDate" value="">
+              <label class="form-check-label" for="byDate">Specific Date</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="reminderType" id="byWeek" value="">
+              <label class="form-check-label" for="byWeek">Specific days of the week</label>
+            </div>
+          </div>
+        </div>
+        <div id="set-reminder-date-container">
+          <div class="set-reminder-date d-flex row w-100">
+            <div class="mb-3 col-sm-12 col-md-6">
+              <label class="form-label">Select date:</label>
+              <div class="position-relative">
+                <i class="material-icons position-absolute top-50 start-10 translate-middle">calendar_today</i>
+                <input type="text" id="datePicker" placeholder="Select Date" class="form-control p-s-5">
+              </div>
+            </div>
+            <div class="mb-3 col-sm-12 col-md-6 ">
+              <label class="form-label">Select date:</label>
+              <div class="position-relative">
+                <i class="material-icons  position-absolute top-50 start-10 translate-middle">schedule</i>
+                <input type="text" id="timePicker" placeholder="Select Time" class="form-control p-s-5 ">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="flex" id="set-reminder-week-container">
+          <div class="set-reminder-week d-flex row w-100">
+            <div class="mb-3 col-sm-12 col-md-12">
+              <label class="form-label">Enable Weekly Reminder</label>
+              <div class="position-relative">
+                <div class="d-flex mt-1 gap-2 flex-wrap">
+                  <div class="form-check-inline me-0 day">
+                    <input class="form-check-input" type="checkbox" id="mon" />
+                    <label class="form-check-label" for="mon">MON</label>
+                  </div>
+                  <div class="form-check-inline me-0 day">
+                    <input class="form-check-input" type="checkbox" id="tue" />
+                    <label class="form-check-label" for="tue">TUE</label>
+                  </div>
+                  <div class="form-check-inline me-0 day">
+                    <input class="form-check-input" type="checkbox" id="wed" />
+                    <label class="form-check-label" for="wed">WED</label>
+                  </div>
+                  <div class="form-check-inline me-0 day">
+                    <input class="form-check-input" type="checkbox" id="thu" />
+                    <label class="form-check-label" for="thu">THU</label>
+                  </div>
+                  <div class="form-check-inline me-0 day">
+                    <input class="form-check-input" type="checkbox" id="fri" />
+                    <label class="form-check-label" for="fri">FRI</label>
+                  </div>
+                  <div class="form-check-inline me-0 day">
+                    <input class="form-check-input" type="checkbox" id="sat" />
+                    <label class="form-check-label" for="sat">SAT</label>
+                  </div>
+                  <div class="form-check-inline me-0 day">
+                    <input class="form-check-input" type="checkbox" id="sun" />
+                    <label class="form-check-label" for="sun">SUN</label>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary-common-popup">Save reminder</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Add reminder popup -->
+
+<!-- Add new entry popup -->
+<div class="modal fade" id="addReminder-entry-question-popup" aria-hidden="true"
+  aria-labelledby="addReminder-entry-question-popup" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-between">
+        <h3 class="modal-title">Question</h3>
+        <button type="button" class="text-black bg-transparent border-0 d-flex justify-content-end"
+          data-bs-dismiss="modal" aria-label="Close"><i class="material-icons">close</i></button>
+      </div>
+      <div class="modal-body">
+        <h4>How are you feeling today?</h4>
+        <div class="positive-feeling">
+
+          <div class="d-flex">
+            <div class="container-1">
+              <!-- Positive Moods -->
+              <div class="mb-3">
+                <h5 class="mb-2">Positive Moods:</h5>
+                <div class="btn-group-1" role="group" aria-label="Positive Moods">
+										<input type="radio" class="btn-check" name="mood" id="1_Happy" autocomplete="off">
+					<label class="btn btn-outline-secondary" for="1_Happy">😊 Happy</label>
+										<input type="radio" class="btn-check" name="mood" id="2_Relaxed" autocomplete="off">
+					<label class="btn btn-outline-secondary" for="2_Relaxed">😌 Relaxed</label>
+										<input type="radio" class="btn-check" name="mood" id="3_Excited" autocomplete="off">
+					<label class="btn btn-outline-secondary" for="3_Excited">😄 Excited</label>
+										<input type="radio" class="btn-check" name="mood" id="4_Satisfied" autocomplete="off">
+					<label class="btn btn-outline-secondary" for="4_Satisfied">🙂 Satisfied</label>
+										<input type="radio" class="btn-check" name="mood" id="5_Grateful" autocomplete="off">
+					<label class="btn btn-outline-secondary" for="5_Grateful">😇 Grateful</label>
+					                  
+                </div>
+              </div>
+
+              <!-- Neutral Moods -->
+              <div class="mb-3">
+                <h5 class="mb-2">Neutral Moods:</h5>
+                <div class="btn-group-1" role="group" aria-label="Neutral Moods">
+										
+					<input type="radio" class="btn-check" name="mood" id="6_Neutral" autocomplete="off">
+					<label class="btn btn-outline-secondary" for="6_Neutral">😐 Neutral</label>
+										
+					<input type="radio" class="btn-check" name="mood" id="7_Thoughtful" autocomplete="off">
+					<label class="btn btn-outline-secondary" for="7_Thoughtful">🤔 Thoughtful</label>
+					                </div>
+              </div>
+
+              <!-- Negative Moods -->
+              <div class="mb-3">
+                <h5 class="mb-2">Negative Moods:</h5>
+                <div class="btn-group-1" role="group" aria-label="Negative Moods">
+                  					<input type="radio" class="btn-check" name="mood" id="8_Worried" autocomplete="off">
+                  <label class="btn btn-outline-secondary" for="8_Worried">😟 Worried</label>
+										<input type="radio" class="btn-check" name="mood" id="9_Sad" autocomplete="off">
+                  <label class="btn btn-outline-secondary" for="9_Sad">😔 Sad</label>
+										<input type="radio" class="btn-check" name="mood" id="10_Stressed" autocomplete="off">
+                  <label class="btn btn-outline-secondary" for="10_Stressed">😣 Stressed</label>
+										<input type="radio" class="btn-check" name="mood" id="11_Frustrated" autocomplete="off">
+                  <label class="btn btn-outline-secondary" for="11_Frustrated">😤 Frustrated</label>
+										<input type="radio" class="btn-check" name="mood" id="12_Tired" autocomplete="off">
+                  <label class="btn btn-outline-secondary" for="12_Tired">😴 Tired</label>
+										<input type="radio" class="btn-check" name="mood" id="13_Anxious" autocomplete="off">
+                  <label class="btn btn-outline-secondary" for="13_Anxious">😠 Anxious</label>
+					                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary-common-popup" id="addNewEntry" type="button">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End new entry popup -->
+
+<!-- Add new entry popup -->
+<div class="modal fade" id="add-entry-question-popup" aria-hidden="true"
+  aria-labelledby="add-entry-question-popup" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-between">
+        <h3 class="modal-title">Add New Entry</h3>
+        <button type="button" class="text-black bg-transparent border-0 d-flex justify-content-end"
+          data-bs-dismiss="modal" aria-label="Close"><i class="material-icons">close</i></button>
+      </div>
+      <div class="modal-body">
+        <div class="step-1" id="selectEntryStep">
+          <div class="flex">
+            <div class="ai-reminder">
+              <h5>Evidentra <img src="http://127.0.0.1:8080/mycorefactors/public/img/chatbot.svg" width="20px" height="auto"></h5>
+              <p class="mt-2">It seems like you're feeling “ 😟 <strong class="fst-italic">worried</strong> ”
+                Would
+                you like to reflect on what's causing this feeling and how you might address it?</p>
+              <h6>Suggestion:</h6>
+              <p class="d-flex align-items-center text-black mb-0 flex-wrap"><i class="material-icons">arrow_right_alt</i>
+                Here
+                are some <a class="fst-italic text-decoration-underline ms-1 me-2" href="#">Relaxation
+                  Techniques</a>
+                you might find helpful.</p>
+            </div>
+          </div>
+          <div class="select-reflection" id="selectMoodSteps">
+            <h4 class="d-flex align-items-center justify-content-between flex-wrap">Please select from the following:
+              <span class="showicon">Mood: 😟</span>
+            </h4>
+            <div class="btn-group-1-reflection d-flex gap-2 flex-wrap" role="group" aria-label="">
+              <input type="radio" class="btn-check" name="select-mood" id="reflection" autocomplete="off">
+              <label class="btn btn-outline-secondary" for="reflection"><span
+                  class="reflection-icon icon-common"></span><span>Reflection</span></label>
+
+              <input type="radio" class="btn-check" name="select-mood" id="gratitude" autocomplete="off">
+              <label class="btn btn-outline-secondary" for="gratitude"><span
+                  class="gratitude-icon icon-common"></span><span>Gratitude</span></label>
+
+              <input type="radio" class="btn-check" name="select-mood" id="goal" autocomplete="off">
+              <label class="btn btn-outline-secondary" for="goal"><span
+                  class="goal-icon icon-common"></span><span>Goal</span></label>
+
+              <input type="radio" class="btn-check" name="select-mood" id="action-item" autocomplete="off">
+              <label class="btn btn-outline-secondary" for="action-item"><span
+                  class="actionitem-icon icon-common"></span><span>Action Item</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class="pe-cursor text-black back-step" data-bs-target="#addReminder-entry-question-popup"
+          data-bs-toggle="modal">Back</a>
+        <button class="btn btn-primary-common-popup" id="addNewEntryStep">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End new entry popup -->
+
+<!-- Add reflection popup -->
+<div class="modal fade" id="add-entry-reflection-popup" aria-hidden="true"
+  aria-labelledby="add-entry-reflection-popup" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-between">
+        <h3 class="modal-title">Add New Entry</h3>
+        <button type="button" class="text-black bg-transparent border-0 d-flex justify-content-end"
+          data-bs-dismiss="modal" aria-label="Close"><i class="material-icons">close</i></button>
+      </div>
+      <div class="modal-body">
+        <div class="step-1" id="reflection-step">
+          <div class="reflection" id="reflection-step">
+            <div class="select-reflection">
+              <h4 class="d-flex align-items-center justify-content-between flex-wrap">Please select from the following:
+                <span>Selected: <span
+                    class="fw-semibold color-green pe-1 border-end border-color">Reflection</span><span
+                    class="ps-1 showicon">Mood: 😟</span>
+              </h4>
+              <div class="select-reflection-inner">
+                <div class="btn-group-1-reflection d-flex gap-2" role="group" aria-label="">
+                  <input type="radio" class="btn-check" checked name="selected-reflection" id="dailyReflection"
+                    autocomplete="off">
+                  <label class="btn btn-outline-secondary w-100" for="dailyReflection"><span>Daily</span></label>
+
+                  <input type="radio" class="btn-check" name="selected-reflection" id="weeklyReflection"
+                    autocomplete="off">
+                  <label class="btn btn-outline-secondary w-100"
+                    for="weeklyReflection"><span>Weekly</span></label>
+
+                  <input type="radio" class="btn-check" name="selected-reflection" id="monthlyReflection"
+                    autocomplete="off">
+                  <label class="btn btn-outline-secondary w-100"
+                    for="monthlyReflection"><span>Monthly</span></label>
+                </div>
+                <div class="question-daily mt-3" id="question-daily">
+                  <div class="question-daily-inner">
+                    <form action="" id="reflectionQuestionFormDaily">
+                      <div class="mb-3">
+                        <label for="question1" class="form-label">Q1- What was the highlight of your day?</label>
+                        <textarea class="form-control" id="question1" name="question1"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+                      <div class="ai-reminder mb-3">
+                        <div class="d-flex flex-column align-items-center gap-2 w-30 m-auto"
+                          id="ai-reminder-loader">
+                          <img src="http://127.0.0.1:8080/mycorefactors/public/img/chatbot.svg" width="20px" height="auto">
+                          <h6 class="text-center">Generating AI Evidentra suggestion</h6>
+                          <span class="loader"></span>
+                        </div>
+                        <div class="d-flex flex-column align-items-start" style="display: none !important;"
+                          id="ai-suggestion">
+                          <h6 class="text-center">Evidentra suggestion <img src="http://127.0.0.1:8080/mycorefactors/public/img/chatbot.svg"
+                              width="20px" height="auto"></h6>
+                          <p>Lorem ipsum dolor sit amet consectetur. Turpis auctor ut dictum adipiscing eleifend
+                            imperdiet. Tempor vestibulum maecenas eget non massa neque integer fames faucibus. A
+                            amet
+                            urna faucibus est. Massa orci mauris purus vulputate condimentum donec ipsum.</p>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="question2" class="form-label">Q2- What challenges did you face today and how
+                          did you overcome them?</label>
+                        <textarea class="form-control" id="question2" name="question2"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="question3" class="form-label">Q3- What did you learn about yourself
+                          today?</label>
+                        <textarea class="form-control" id="question3" name="question3"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+					  <div class="mb-3">
+                        <label for="question4" class="form-label">Q4- Describe a moment that made you smile today.</label>
+                        <textarea class="form-control" id="question4" name="question4"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+					  <div class="mb-3">
+                        <label for="question5" class="form-label">Q5- How did you feel about your productivity today?</label>
+                        <textarea class="form-control" id="question5" name="question5"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="question-weekly mt-3" id="question-weekly">
+                  <div class="question-daily-inner">
+                    <form action="" id="reflectionQuestionFormWeekly">
+                      <div class="mb-3">
+                        <label for="question1" class="form-label">Q1- What was your biggest accomplishment this week?</label>
+                        <textarea class="form-control" id="question1" name="question1"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+                      <div class="ai-reminder mb-3">
+                        <div class="d-flex flex-column align-items-center gap-2 w-30 m-auto"
+                          id="ai-reminder-loader-weekly">
+                          <img src="http://127.0.0.1:8080/mycorefactors/public/img/chatbot.svg" width="20px" height="auto">
+                          <h6 class="text-center">Generating AI Evidentra suggestion</h6>
+                          <span class="loader"></span>
+                        </div>
+                        <div class="d-flex flex-column align-items-start" style="display: none !important;"
+                          id="ai-suggestion-weekly">
+                          <h6 class="text-center">Evidentra suggestion <img src="http://127.0.0.1:8080/mycorefactors/public/img/chatbot.svg"
+                              width="20px" height="auto"></h6>
+                          <p>Lorem ipsum dolor sit amet consectetur. Turpis auctor ut dictum adipiscing eleifend
+                            imperdiet. Tempor vestibulum maecenas eget non massa neque integer fames faucibus. A
+                            amet
+                            urna faucibus est. Massa orci mauris purus vulputate condimentum donec ipsum.</p>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="question2" class="form-label">Q2- What obstacles did you encounter and how did you handle them?</label>
+                        <textarea class="form-control" id="question2" name="question2"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="question3" class="form-label">Q3- Reflect on a moment this week that brought you joy.</label>
+                        <textarea class="form-control" id="question3" name="question3"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+					  <div class="mb-3">
+                        <label for="question4" class="form-label">Q4- What did you learn from the people you interacted with this week?</label>
+                        <textarea class="form-control" id="question4" name="question4"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+					  <div class="mb-3">
+                        <label for="question5" class="form-label">Q5- How would you rate your overall week and why?</label>
+                        <textarea class="form-control" id="question5" name="question5"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="question-monthly mt-3" id="question-monthly">
+                  <div class="question-daily-inner">
+                    <form action="" id="reflectionQuestionFormMonthly">
+                      <div class="mb-3">
+                        <label for="question1" class="form-label">Q1- What were your key achievements this month?</label>
+                        <textarea class="form-control" id="question1" name="question1"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+                      <div class="ai-reminder mb-3">
+                        <div class="d-flex flex-column align-items-center gap-2 w-30 m-auto"
+                          id="ai-reminder-loader-monthly">
+                          <img src="http://127.0.0.1:8080/mycorefactors/public/img/chatbot.svg" width="20px" height="auto">
+                          <h6 class="text-center">Generating AI Evidentra suggestion</h6>
+                          <span class="loader"></span>
+                        </div>
+                        <div class="d-flex flex-column align-items-start" style="display: none !important;"
+                          id="ai-suggestion-monthly">
+                          <h6 class="text-center">Evidentra suggestion <img src="http://127.0.0.1:8080/mycorefactors/public/img/chatbot.svg"
+                              width="20px" height="auto"></h6>
+                          <p>Lorem ipsum dolor sit amet consectetur. Turpis auctor ut dictum adipiscing eleifend
+                            imperdiet. Tempor vestibulum maecenas eget non massa neque integer fames faucibus. A
+                            amet
+                            urna faucibus est. Massa orci mauris purus vulputate condimentum donec ipsum.</p>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="question2" class="form-label">Q2- What did you find most challenging and why?</label>
+                        <textarea class="form-control" id="question2" name="question2"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="question3" class="form-label">Q3- Reflect on your personal growth this month.</label>
+                        <textarea class="form-control" id="question3" name="question3"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+					  <div class="mb-3">
+                        <label for="question4" class="form-label">Q4- What are you most grateful for this month?</label>
+                        <textarea class="form-control" id="question4" name="question4"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+					  <div class="mb-3">
+                        <label for="question5" class="form-label">Q5- How did you balance your work and personal life this month?</label>
+                        <textarea class="form-control" id="question5" name="question5"
+                          placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class="pe-cursor text-black back-step" data-bs-target="#add-entry-question-popup"
+          data-bs-toggle="modal">Back</a>
+        <button class="btn btn-primary-common-popup" id="celebrateButton">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End reflection popup -->
+
+<!-- Add gratitude popup -->
+<div class="modal fade" id="add-entry-gratitude-popup" aria-hidden="true"
+  aria-labelledby="add-entry-gratitude-popup" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-between">
+        <h3 class="modal-title">Add New Entry</h3>
+        <button type="button" class="text-black bg-transparent border-0 d-flex justify-content-end"
+          data-bs-dismiss="modal" aria-label="Close"><i class="material-icons">close</i></button>
+      </div>
+      <div class="modal-body">
+        <div class="step-1" id="reflection-step">
+          <div class="reflection" id="reflection-step">
+            <div class="select-reflection">
+              <div class="d-flex align-items-center justify-content-end">
+                <span>Selected: <span
+                    class="fw-semibold color-green pe-1 border-end border-color">Gratitude</span> <span
+                    class="ps-1 showicon">Mood: 😟</span>
+              </div>
+              <div class="question-daily-inner">
+                <form action="" id="addQuestion-gratitude">
+                  <div class="mb-3">
+                    <label for="question" class="form-label">List three things you are grateful for today</label>
+                    <textarea class="form-control" id="question1" name="question1"
+                      placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="question" class="form-label">Who is someone that made a positive impact on your life recently?</label>
+                    <textarea class="form-control" id="question2" name="question2"
+                      placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="question" class="form-label">Describe a small thing that brought you happiness today.</label>
+                    <textarea class="form-control" id="question3" name="question3"
+                      placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                  </div>
+				  <div class="mb-3">
+                    <label for="question" class="form-label">What is a recent success you are thankful for?</label>
+                    <textarea class="form-control" id="question4" name="question4"
+                      placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                  </div><div class="mb-3">
+                    <label for="question" class="form-label">Reflect on a kind gesture someone did for you.</label>
+                    <textarea class="form-control" id="question5" name="question5"
+                      placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class="pe-cursor text-black back-step" data-bs-target="#add-entry-question-popup"
+          data-bs-toggle="modal">Back</a>
+        <button class="btn btn-primary-common-popup" id="celebrateButtonGratitude">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End gratitude popup -->
+
+<!-- Add Goal popup -->
+<div class="modal fade" id="add-entry-goal-popup" aria-hidden="true" aria-labelledby="add-entry-goal-popup"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-between">
+        <h3 class="modal-title">Add New Entry</h3>
+        <button type="button" class="text-black bg-transparent border-0 d-flex justify-content-end"
+          data-bs-dismiss="modal" aria-label="Close"><i class="material-icons">close</i></button>
+      </div>
+      <div class="modal-body">
+        <div class="step-1" id="reflection-step">
+          <div class="reflection" id="reflection-step">
+            <div class="d-flex align-items-center justify-content-end">
+              <span>Selected: <span class="fw-semibold color-green pe-1 border-end border-color">Goal</span> <span
+                  class="ps-1 showicon">Mood: 😟</span>
+            </div>
+            <div class="select-reflection-inner mt-3">
+              <div class="btn-group-1-reflection d-flex gap-2" role="group" aria-label="">
+                <input type="radio" class="btn-check" checked="" name="selected-goal" id="dailyGoal"
+                  autocomplete="off">
+                <label class="btn btn-outline-secondary w-100" for="dailyGoal"><span>Daily</span></label>
+
+                <input type="radio" class="btn-check" name="selected-goal" id="weeklyGoal" autocomplete="off">
+                <label class="btn btn-outline-secondary w-100" for="weeklyGoal"><span>Weekly</span></label>
+
+                <input type="radio" class="btn-check" name="selected-goal" id="monthlyGoal" autocomplete="off">
+                <label class="btn btn-outline-secondary w-100" for="monthlyGoal"><span>Monthly</span></label>
+              </div>
+              <div class="question-daily mt-3" id="question-daily-goal" style="">
+                <div class="question-daily-inner">
+                  <form action="" id="goalQuestionFormDaily">
+                    <div class="mb-3">
+                      <label for="question1" class="form-label">Q1- What is your primary goal for today?</label>
+                      <textarea class="form-control" id="question1" name="question1"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question2" class="form-label">Q2- What is one thing you want to accomplish by the end of the day?</label>
+                      <textarea class="form-control" id="question2" name="question2"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question3" class="form-label">Q3- What will you do today to make progress toward your long-term goals?</label>
+                      <textarea class="form-control" id="question3" name="question3"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question4" class="form-label">Q4- What positive habit do you want to focus on today?</label>
+                      <textarea class="form-control" id="question4" name="question4"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question5" class="form-label">Q5- How will you ensure you stay productive today?</label>
+                      <textarea class="form-control" id="question5" name="question5"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="question-weekly mt-3" id="question-weekly-goal" style="display: none;">
+                <div class="question-daily-inner">
+                  <form action="" id="goalQuestionFormWeekly">
+                    <div class="mb-3">
+                      <label for="question1" class="form-label">Q1- What are your top three goals for this week?</label>
+                      <textarea class="form-control" id="question1" name="question1"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question2" class="form-label">Q2- What is a new skill or habit you want to develop this week?</label>
+                      <textarea class="form-control" id="question2" name="question2"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question3" class="form-label">Q3- How will you measure your success at the end of the week?</label>
+                      <textarea class="form-control" id="question3" name="question3"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question4" class="form-label">Q4- What is one challenge you want to tackle this week?"</label>
+                      <textarea class="form-control" id="question4" name="question4"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question5" class="form-label">Q5- What will you do to ensure a balanced week?</label>
+                      <textarea class="form-control" id="question5" name="question5"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+              <div class="question-monthly mt-3" id="question-monthly-goal" style="display: none;">
+                <div class="question-daily-inner">
+                  <form action="" id="goalQuestionFormMonthly">
+                    <div class="mb-3">
+                      <label for="question1" class="form-label">Q1- What are your main objectives for this month?</label>
+                      <textarea class="form-control" id="question1" name="question1"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question2" class="form-label">Q2- What personal or professional milestones do you want to achieve?</label>
+                      <textarea class="form-control" id="question2" name="question2"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question3" class="form-label">Q3- How will you stay motivated throughout the month?</label>
+                      <textarea class="form-control" id="question3" name="question3"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question4" class="form-label">Q4- What is a long-term project you want to make significant progress on?</label>
+                      <textarea class="form-control" id="question4" name="question4"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question5" class="form-label">Q5- What strategies will you implement to reach your goals this month?</label>
+                      <textarea class="form-control" id="question5" name="question5"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class="pe-cursor text-black back-step" data-bs-target="#add-entry-question-popup"
+          data-bs-toggle="modal">Back</a>
+        <button class="btn btn-primary-common-popup" id="celebrateButtonGoal">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End goal popup -->
+
+<!-- Add actionItem popup -->
+      <div class="modal fade" id="add-entry-actionItem-popup" aria-hidden="true"
+        aria-labelledby="add-entry-actionItem-popup" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between">
+              <h3 class="modal-title">Add New Entry</h3>
+              <button type="button" class="text-black bg-transparent border-0 d-flex justify-content-end"
+                data-bs-dismiss="modal" aria-label="Close"><i class="material-icons">close</i></button>
+            </div>
+            <div class="modal-body">
+              <div class="step-1" id="reflection-step">
+                <div class="reflection">
+                  <div class="d-flex align-items-center justify-content-end">
+                    <span>Selected: <span class="fw-semibold color-green pe-1 border-end border-color">Action Item</span> <span
+                        class="ps-1 showicon">Mood: 😟</span>
+                  </div>
+                  <div class="select-reflection-inner mt-3">
+                    
+                    <div class="question-daily mt-3" id="question-daily-action" style="">
+                      <div class="question-daily-inner">
+                        <form action="" id="actionQuestionFormDaily">
+                          <div class="mb-3">
+                      <label for="question1" class="form-label">Q1- What specific task do you plan to accomplish today?</label>
+                      <textarea class="form-control" id="question1" name="question1"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question2" class="form-label">Q2- Describe an actionable step you can take toward your goal.</label>
+                      <textarea class="form-control" id="question2" name="question2"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question3" class="form-label">Q3- What is one thing you can do today to improve your well-being?</label>
+                      <textarea class="form-control" id="question3" name="question3"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question4" class="form-label">Q4- What is the next step you need to take for your current project?</label>
+                      <textarea class="form-control" id="question4" name="question4"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+					<div class="mb-3">
+                      <label for="question5" class="form-label">Q5- What task have you been procrastinating on that you will complete today?</label>
+                      <textarea class="form-control" id="question5" name="question5"
+                        placeholder="Write your answer here." cols="30" rows="5"></textarea>
+                    </div>
+                        </form>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a class="pe-cursor text-black back-step" data-bs-target="#add-entry-question-popup"
+                data-bs-toggle="modal">Back</a>
+              <button class="btn btn-primary-common-popup" id="celebrateButtonAction">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End actionItem popup -->
+	  
+	  <!-- update popup -->
+      <div class="modal fade" id="update-entry-popup" aria-hidden="true" aria-labelledby="update-entry-popup"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between">
+              <h3 class="modal-title">Entry Details</h3>
+              <button type="button" class="text-black bg-transparent border-0 d-flex justify-content-end"
+                data-bs-dismiss="modal" aria-label="Close"><i class="material-icons">close</i></button>
+            </div>
+            <div class="modal-body">
+              <div class="step-1" id="reflection-step">
+                <div class="reflection" id="reflection-step">
+                  <div class="select-reflection">
+                    <div class="d-flex align-items-center justify-content-between align-items-center flex-wrap">
+                      <h4 class="mb-1 mt-1 entryname"> </h4>
+                      <div class="d-flex align-items-center gap-2 fs-14">
+                        <span class="border-right pe-1 d-flex align-items-center moodstatus"></span>
+                        <span class="ps-1 border-right pe-1 d-flex align-items-center"><i
+                            class="material-icons fs-6 pe-1">schedule</i> 12:00 AM</span>
+                        <span class="ps-1 d-flex align-items-center"><i
+                            class="material-icons fs-6 pe-1">calendar_today</i> Jul 26 2024</span>
+                      </div>
+                    </div>
+                    <div class="select-reflection-inner">
+                      <div class="question-daily mt-3" id="question-update">
+                        <div class="question-daily-inner">
+                          <form id="updateentryform" action="">
+							<input type="hidden" name="upentryid" id="upentryid" value="" />
+							<input type="hidden" name="uptypeid" id="uptypeid" value="" />
+							<input type="hidden" name="tabletoupdate" id="uptabletoupdate" value="" />
+							
+                            <div class="mb-3">
+                              <label for="question1" class="form-label upquestion1">Q1- </label>
+                              <textarea class="form-control" id="upquestion1" name="question1"
+                                placeholder="Write your answer here." cols="30"
+                                rows="5"></textarea>
+                            </div>
+                            <div class="mb-3">
+                              <label for="question2" class="form-label upquestion2">Q2- </label>
+                              <textarea class="form-control" id="upquestion2" name="question2"
+                                placeholder="Write your answer here." cols="30"
+                                rows="5"></textarea>
+                            </div>
+                            <div class="mb-3">
+                              <label for="question3" class="form-label upquestion3">Q3- </label>
+                              <textarea class="form-control" id="upquestion3" name="question3"
+                                placeholder="Write your answer here." cols="30"
+                                rows="5"></textarea>
+                            </div>
+							<div class="mb-3">
+                              <label for="question4" class="form-label upquestion4">Q4- </label>
+                              <textarea class="form-control" id="upquestion4" name="question4"
+                                placeholder="Write your answer here." cols="30"
+                                rows="5"></textarea>
+                            </div>
+							<div class="mb-3">
+                              <label for="question5" class="form-label upquestion5">Q5- </label>
+                              <textarea class="form-control" id="upquestion5" name="question5"
+                                placeholder="Write your answer here." cols="30"
+                                rows="5"></textarea>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary-common-popup" id="updateEntry">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+			
+			<div class="chatbot-container position-fixed">
+    <div class="chatbot-header d-flex align-items-center justify-content-between">
+      <div class="left-side d-flex align-items-center gap-2">
+        <span  id="backtoChatIcon"><i class="material-icons">keyboard_backspace</i> 🤖 Evidentra</span>
+        <span id="backtoChat" style="display: none;"><i class="material-icons">keyboard_backspace</i> Highlighted Text</span>
+      </div>
+      <div class="right-side d-flex align-items-center gap-2">
+        <a id="showCashChatbot" href="javascript:void(0)" class="open-chatbot text-black"><i
+            class="material-icons">edit</i></a>
+        <a id="hideChatbot" href="javascript:void(0)" class="close-chatbot text-black"><i
+            class="material-icons">remove</i></a>
+        <a id="closeChatbot" href="javascript:void(0)" class="close-chatbot text-black"><i
+            class="material-icons">close</i></a>
+      </div>
+    </div>
+    <!-- Chatbot content goes here -->
+    <div class="chatbot-content" id="chat-content">
+      <div class="chatbot-message-defult mb-3">
+        <span class="chatbot-start">🤖</span>
+        <p class="text-center mt-2 mb-0 ">AI Coach Assistance, our smart support bot, is here to help.</p>
+      </div>
+
+      <div class="chatbot-message d-flex gap-2  mt-3">
+        <span class="chatbot-start-reply">🤖</span>
+        <div class="chatbot-reply-text-wrapper d-flex flex-column gap-2">
+          <p class="mt-0 mb-0 chatbot-reply-text">Hy!</p>
+          <p class="mt-0 mb-0 chatbot-reply-text">How may I assist you?</p>
+        </div>
+      </div>
+      <div class="chatbot-message d-flex gap-2 justify-content-end  mt-3">
+        <div class="chatbot-reply-text-wrapper-user d-flex flex-column gap-2">
+          <p class="mt-0 mb-0 chatbot-reply-text">I want to start working out more regularly, but I'm not sure where to
+            begin.</p>
+        </div>
+      </div>
+      <div class="chatbot-message d-flex gap-2 mt-3">
+        <span class="chatbot-start-reply">🤖</span>
+        <div class="chatbot-reply-text-wrapper d-flex flex-column gap-2">
+          <p class="mt-0 mb-0 chatbot-reply-text">That's a great goal! Let’s break it down. How many days a week would
+            you like to work out?</p>
+        </div>
+      </div>
+      <div class="chatbot-message d-flex gap-2 justify-content-end  mt-3">
+        <div class="chatbot-reply-text-wrapper-user d-flex flex-column gap-2">
+          <p class="mt-0 mb-0 chatbot-reply-text">I want to start working out more regularly, but I'm not sure where to
+            begin.</p>
+          <p class="mt-0 mb-0 chatbot-reply-text">Maybe three times a week to start with.</p>
+        </div>
+      </div>
+      <div class="chatbot-message d-flex gap-2 mt-3">
+        <span class="chatbot-start-reply">🤖</span>
+        <div class="chatbot-reply-text-wrapper d-flex flex-column gap-2">
+          <p class="mt-0 mb-0 chatbot-reply-text">That's a great goal! Let’s break it down. How many days a week would
+            you like to work out?</p>
+        </div>
+      </div>
+      <div class="chatbot-message d-flex gap-2 justify-content-end  mt-3">
+        <div class="chatbot-reply-text-wrapper-user d-flex flex-column gap-2">
+          <p class="mt-0 mb-0 chatbot-reply-text">I want to start working out more regularly, but I'm not sure where to
+            begin.</p>
+        </div>
+      </div>
+      <div class="chatbot-message d-flex gap-2 mt-3">
+        <span class="chatbot-start-reply">🤖</span>
+        <div class="chatbot-reply-text-wrapper d-flex flex-column gap-2">
+          <p class="mt-0 mb-0 chatbot-reply-text">That's a great goal! Let’s break it down. How many days a week would
+            you like to work out?</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-0 chatbot-content flex-column" style="display: none;" id="highlight-content">
+      <div class="chatbot-no-message-highlight mb-3 d-flex align-items-center justify-content-center gap-2 flex-column h-100 d-none"><i
+        class="material-icons">edit</i>
+        No highlighted text
+      </div>
+      <div class="chatbot-content">
+        <div class="chatbot-message-highlight d-flex gap-2 mt-3">
+          <span class="chatbot-start-reply">🤖</span>
+          <div class="chatbot-reply-text-wrapper d-flex flex-column">
+            <p class="chatbot-name d-flex align-items-center justify-content-between">Evidentra <span class="chatbot-time d-flex gap-1 align-items-center">2 days ago <i class="material-icons">chevron_right</i></span></p>
+            <p class="mt-0 mb-0 chatbot-reply-text">How many days a week would
+              you like to work out?</p>
+          </div>
+        </div>
+        <div class="chatbot-message-highlight d-flex gap-2 mt-3">
+          <span class="chatbot-start-reply">🤖</span>
+          <div class="chatbot-reply-text-wrapper d-flex flex-column">
+            <p class="chatbot-name d-flex align-items-center justify-content-between">Evidentra <span class="chatbot-time d-flex gap-1 align-items-center">2 days ago <i class="material-icons">chevron_right</i></span></p>
+            <p class="mt-0 mb-0 chatbot-reply-text">How many days a week would
+              you like to work out?</p>
+          </div>
+        </div>
+        <div class="chatbot-message-highlight d-flex gap-2 mt-3">
+          <span class="chatbot-start-reply">🤖</span>
+          <div class="chatbot-reply-text-wrapper d-flex flex-column">
+            <p class="chatbot-name d-flex align-items-center justify-content-between">Evidentra <span class="chatbot-time d-flex gap-1 align-items-center">2 days ago <i class="material-icons">chevron_right</i></span></p>
+            <p class="mt-0 mb-0 chatbot-reply-text">How many days a week would
+              you like to work out?</p>
+          </div>
+        </div>
+        <div class="chatbot-message-highlight d-flex gap-2 mt-3">
+          <span class="chatbot-start-reply">🤖</span>
+          <div class="chatbot-reply-text-wrapper d-flex flex-column">
+            <p class="chatbot-name d-flex align-items-center justify-content-between">Evidentra <span class="chatbot-time d-flex gap-1 align-items-center">2 days ago <i class="material-icons">chevron_right</i></span></p>
+            <p class="mt-0 mb-0 chatbot-reply-text">How many days a week would
+              you like to work out?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chatbot-footer d-flex p-2">
+      <textarea id="user-input" placeholder="Type your message..."></textarea>
+      <button id="send-btn-chatbot"><i class="material-icons">send</i></button>
+    </div>
+  </div>
+	
+	<div class="chatbot position-fixed" id="chatbotEvidentra">
+    🤖
+    Ask Evidentra
+  </div>
+  <div class="tooltip" id="copy-tooltip"><i class="material-icons">edit</i> Highlight Text</div>
+  
+			 </div>
+			</div>
+			
+		<script src="http://127.0.0.1:8080/mycorefactors/public/js/jquery-3.6.0.min.js"></script>
+		<script src="http://127.0.0.1:8080/mycorefactors/public/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="http://127.0.0.1:8080/mycorefactors/public/plugin/jquery-ui/jquery-ui.js"></script>
+		<script src="http://127.0.0.1:8080/mycorefactors/public/plugin/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+		<script src="http://127.0.0.1:8080/mycorefactors/public/plugin/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+		<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+		<script src="http://127.0.0.1:8080/mycorefactors/public/js/custom.js"></script>		
+		<script src="http://127.0.0.1:8080/mycorefactors/public/js/reports.js"></script>
+		<script src="http://127.0.0.1:8080/mycorefactors/public/js/datatables.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+		<script>
+		function getTime() {
+			var dd = new Date();
+			var hh = dd.getHours();
+
+			if(hh > 11){
+				$('.greetings').html("Good Afternoon");
+			}else {
+				$('.greetings').html("Good Morning");
+			}
+
+		}  
+
+		getTime();			
+		</script>
+    </body>
+</html>

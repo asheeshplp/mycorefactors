@@ -1,0 +1,251 @@
+<?php
+use Illuminate\Support\Facades\Auth;
+$user = Auth::user();
+$firstName = ucwords($user->first_name);
+$lastName = ucwords($user->last_name);
+
+// echo '<pre>'; print_r($enteriesArr); die;
+?>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('My Journal') }}
+        </h2>
+    </x-slot>
+	 <main class="col-md-12 ms-sm-auto col-lg-12 pb-5" id="main-wrapper">
+        <div class="container-fluid px-3">
+          <div class="note-container-journal rounded text-white py-5 position-relative px-3">
+            <span class="fst-italic welcome-msg greetings"></span>,
+            <h1 class="text-left mb-0 inline-block d-flex align-items-center">{{ $firstName }} {{ $lastName }}👋</h1>
+            <p class="text-left mb-0">Here how you were doing</p>
+            <img class="position-absolute top-0 end-0"
+              src="https://stage.leadersbeacon.com/designer/participant-account/assets/img/journal-bg-welcome.png">
+          </div>
+
+          <div class="p-0 mt-5">
+            <div class="d-flex align-items-center justify-content-between p-0 mb-3">
+              <h3 class="text-black-one p-0 fw-bold text-h3">My Journal</h3>
+              <!--<div class="mood">Mood:😟</div>-->
+            </div>
+          </div>
+
+          <div class="row p-0">
+            <div class="col-md-12 col-lg-8 col-xl-8 mb-3 mb-xl-0">
+              <div class="card">
+                <div class="card-body">
+                  
+				  <?php if($enteriesArr) { ?>
+				  <h5 class="card-title card-title-common d-flex justify-content-between">Entries <span
+                      class="float-end"><button type="button" data-bs-target="#addReminder-entry-question-popup"
+                        data-bs-toggle="modal" class="btn btn-primary-common">+ Add</button></span></h5>
+				  <?php } else { ?>	
+						<h5 class="card-title card-title-common">Entries</h5>
+				  <?php } ?>
+				  
+                  <div class="search-box d-flex align-items-center justify-content-between flex-wrap mb-2">
+                    <h5 class="mb-0 text-black-one card-title-sub">Search & Filter</h5>
+                    <div class="filter-box d-flex align-items-center gap-3 flex-wrap">
+                      
+                      <div class="d-flex position-relative comman-form">
+                        <select class="form-select" aria-label="short by" id="FilterSortBy">
+                          <option selected>Sort By</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="d-flex position-relative comman-form">
+                        <select class="form-select" aria-label="Type" id="FilterSortByType">
+                          <option selected>Type</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="card-text card-text-common text-center py-5">
+					<?php if($enteriesArr) { ?>
+						<table id="myjournalDashboard" class="display border-0" style="width:100%">
+						<thead class="d-none">
+						  <tr>
+							<th>Card Data</th>
+						  </tr>
+						</thead>
+						<tbody>
+						<?php 
+						foreach($enteriesArr as $entry) { 
+						// echo '<pre>'; print_r($entry); die;
+						$entry_option 	= $entry['entry_option'];
+						$moodId 		= $entry['mood_id'];
+						if($moodId == '1') {
+							$text = 'Happy';
+							$icon = '😊';
+						}
+						if($moodId == '2') {
+							$text = 'Relaxed';
+							$icon = '😌';
+						}
+						if($moodId == '3') {
+							$text = 'Excited';
+							$icon = '😄';
+						}
+						if($moodId == '4') {
+							$text = 'Satisfied';
+							$icon = '🙂';
+						}
+						if($moodId == '5') {
+							$text = 'Grateful';
+							$icon = '😇';
+						}
+						if($moodId == '6') {
+							$text = 'Neutral';
+							$icon = '😐';
+						}
+						if($moodId == '7') {
+							$text = 'Thoughtful';
+							$icon = '🤔';
+						}	
+						if($moodId == '8') {
+							$text = 'Worried';
+							$icon = '😟';
+						}
+						if($moodId == '9') {
+							$text = 'Sad';
+							$icon = '😔';
+						}
+						if($moodId == '10') {
+							$text = 'Stressed';
+							$icon = '😣';
+						}
+						if($moodId == '11') {
+							$text = 'Frustrated';
+							$icon = '😤';
+						}
+						if($moodId == '12') {
+							$text = 'Tired';
+							$icon = '😴';
+						}
+						if($moodId == '13') {
+							$text = 'Anxious';
+							$icon = '😠';
+						}
+							
+						
+						if($entry_option == '1') {
+							$name = 'Reflection';
+							$image = 'img/reflaction-icon.svg';
+						}
+						if($entry_option == '2') {
+							$name = 'Gratitude';
+							$image = 'img/gratitude-icon.svg';
+						}
+						if($entry_option == '3') {
+							$name = 'Goal';
+							$image = 'img/goal-icon.svg';
+						}
+						if($entry_option == '4') {
+							$name = 'Action Item';
+							$image = 'img/action-icon.svg';
+						}
+						?> 
+						<tr  class="bg-transparent-none">
+                        <td>
+                          <div class="row">
+                            <div class="col-md-12 mb-3">
+                              <div class="card bg-card-1">
+                                <div class="d-flex flex-column">
+                                  <div class="p-3 border-bottom common-box-journal text-start">
+                                    <img src="{{ asset($image) }}" width="40px" height="auto">
+                                    <h5 class="mb-0">{{ $name }}</h5>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Commodo urna id consequat volutpat sit. Mi
+                                      posuere massa tellus lectus quis integer lacus. Suscipit ac tincidunt eget vestibulum.
+                                    </p>
+                                    <div class="btn-group comman-none dropstart position-absolute top-0 end-0">
+                                      <button type="button" class=" bg-transparent border-0 dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                      </button>
+                                      <ul class="dropdown-menu p-0">
+                                        <li><a class="dropdown-item p-2" data-bs-target="#update-entry-popup" href="void(0)"
+                                            data-bs-toggle="modal">Edit Entry</a></li>
+                                        <li><a class="dropdown-item p-2" href="#">Delete Entry</a></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="footer-comman-card p-3">
+                                    <div class="d-flex">
+                                      <ul class="m-0 d-flex align-items-center list-unstyled flex-wrap">
+                                        <li class="d-flex align-items-center gap-1 border-end pe-2"><i
+                                            class="material-icons">schedule</i> 12:00 AM</li>
+                                        <li class="d-flex align-items-center ps-2 gap-1 border-end pe-2 "><i
+                                            class="material-icons">event</i> Jul 26 2024</li>
+                                        <li class="d-flex align-items-center ps-2 gap-1 pe-2">Mood Status: {{ $icon }}</li>
+                                      </ul>
+      
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                           
+                          </div>
+                        </td>
+                      </tr>
+						<?php } ?>
+						</tbody>
+						</table>
+					<?php } else { ?>
+                    <h4 class="mb-0 fw-bold text-black">No Entries available</h4>
+                    <p class="comman-p pt-2">Create an entry now</p>
+                    <button type="button" class="btn btn-primary-common"
+                      data-bs-target="#addReminder-entry-question-popup" data-bs-toggle="modal">+ Add New Entry</button>
+					<?php } ?>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-4 col-xl-4 mb-3 mb-xl-0">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title card-title-common">Reminders</h5>
+                  <div class="card-text card-text-common text-center py-5">
+                    <h4 class="mb-0 fw-bold text-black">No reminder available</h4>
+                    <p class="comman-p pt-2">Create an entry now</p>
+                    <button type="button" class="btn btn-primary-common" data-bs-target="#addReminder-popup"
+                      data-bs-toggle="modal">+ Add New Entry</button>
+                  </div>
+                  <div class="card-footer bg-white px-0 d-flex justify-content-between align-items-center pt-4">
+                    <p class="comman-p-footer pt-2 text-start">Enable AI Reminder Suggestions</p>
+                    <div class="form-check form-switch fs-4">
+                      <input class="form-check-input comman-checkbox" type="checkbox" role="switch"
+                        id="flexSwitchCheckDefault">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title card-title-common d-flex align-items-center gap-2"><img
+                      src="{{ asset('img/chatbot.svg') }}" width="25px" height="auto"> Insights</h5>
+                  <div class="card-text card-text-common text-center py-5">
+                    <h4 class="mb-0 fw-bold text-black">No Insights</h4>
+                    <p class="comman-p pt-2">Create an entry now</p>
+                    <button type="button" class="btn btn-primary-common">+ Add New Entry</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </main>
+    </div>
+ 
+<form id="entryform" name="">
+	<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+	<input type="hidden" name="selectedmood" id="selectedmood" value="" />
+	<input type="hidden" name="entryoption" id="entryoption" value="" />
+	<input type="hidden" name="dailyRef" id="dailyRef" value="" />
+</form>
+</x-app-layout>
