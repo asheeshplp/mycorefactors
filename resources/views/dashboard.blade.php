@@ -155,13 +155,23 @@
                 </div>
               </div>
             </div>
-
+			<?php 
+			if($sdresultCount > 0) {
+				$sdClass = 'bg-dark';
+				$sdhref	=	route('socialdynamics'); 
+				$sdimage = 'img/icon-socialdynamics.png';
+			} else {
+				$sdClass = 'bg-gray';
+				$sdhref	=	'javascript:void(0);'; 
+				$sdimage = 'img/social-dynamic-icon.png';
+			}
+			?>
             <div class="col-md-3 col-lg-3 col-xl-2 col-sm-4 mb-lg-3 mb-md-3 mb-sm-3 mb-3 mb-xl-0">
               <div class="card">
-                <div class="card-body bg-gray text-center border-0 rounded dash-comman-box">
+                <div class="card-body bg-gray {{ $sdClass }} text-center border-0 rounded dash-comman-box">
                   <div class="d-flex justify-content-center align-items-center">
-                    <a href="#" class="text-decoration-none w-100">
-                      <img src="{{ asset('img/social-dynamic-icon.png') }}" width="50px" height="auto">
+                    <a href="{{ $sdhref }}" class="text-decoration-none w-100">
+                      <img src="{{ asset($sdimage) }}" width="50px" height="auto">
                       <p class="card-text text-white fw-bold mb-0">Social Dynamics</p>
                     </a>
 

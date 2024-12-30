@@ -740,6 +740,84 @@ function scrollToContent(contentId, tabId, tabContentId) {
 		}
 	}
 
+function showContentsd(type) {
+	var previoustab = $('#selectedtab').val();
+	$('#selectedtab').val(type);
+	$('#myTabContent').html('');
+	$('.loader').show();
+	var dataString = $("#eqform").serialize();				
+	var data = {
+		"_token": $('#token').val(),
+		"dataString": dataString
+	};
+	$.ajax({
+		type: 'POST',
+		url: 'getsdreportcontent',
+		data: data,
+		datatype: 'json',
+		success: function(result) {
+			$('.loader').hide(); 
+			$('#myTabContent').html(result);
+			$('.menu-btn a').removeClass('active');
+			if(type == 'introductionsd') {
+				$('#introductionsd a').addClass('active');
+				$('#understandyourselves .material-icons').eq(0).show();
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+			} else if(type == 'naturalsocialdynamics') {
+				$('#naturalsocialdynamics a').addClass('active');
+				$('#understandyourselves .material-icons').eq(0).show();
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+			} else if(type == 'snapshotsfourstyles') {
+				$('#snapshotsfourstyles a').addClass('active');
+				$('#understandyourselves .material-icons').eq(0).show();
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+			} else if(type == 'socialdynamicsstyles') {
+				$('#socialdynamicsstyles a').addClass('active');
+				$('#understandyourselves .material-icons').eq(0).show();
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+			} else if(type == 'understandyourselves') {
+				$('#understandyourselves a').eq(0).addClass('active');	
+				$('#understandyourselves').find('.dropdown-menu').removeClass('hide');
+				$('#understandyourselves').find('.dropdown-menu').addClass('show');
+				$('#understandyourselves .material-icons').eq(0).hide();
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+			} else if(type == 'yourAssessmentresults') {
+				$('#yourAssessmentresults a').eq(0).addClass('active');	
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('hide');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('show');
+				$('#yourAssessmentresults .material-icons').eq(0).hide();
+				
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				$('#understandyourselves .material-icons').eq(0).show();
+			}
+		}
+	});
+}
+
 function showContentcp(type) {
 	var previoustab = $('#selectedtab').val();
 	$('#selectedtab').val(type);

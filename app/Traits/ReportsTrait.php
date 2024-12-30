@@ -31,6 +31,9 @@ trait ReportsTrait
 		//Get Career Path Completed Report Count		
 		$careerResult = $survey->getCareerReportcount($userEmail, $cpathProductId);
 		$cresultCount = $careerResult->total;
+		//Get Social Completed Report Count		
+		$socialResult = $survey->getSocialReportcount($userEmail, $sdynProductId);
+		$sdresultCount = $socialResult->total;
 		
 		
 		Session::put('eqresultCount', $eqresultCount);

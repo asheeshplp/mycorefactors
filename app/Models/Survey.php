@@ -19,11 +19,19 @@ class Survey extends Model
 		return DB::connection('mysql_second')->table('survey')->selectRaw('COUNT(*) as total')->where('email_id', '=', $userEmail)->where('product_id', '=', $productId)->where('status', '=', '1')->first();
     }
 	
+	public function getSocialReportcount($userEmail = null, $productId = null) {
+		return DB::connection('mysql_second')->table('survey')->selectRaw('COUNT(*) as total')->where('email_id', '=', $userEmail)->where('product_id', '=', $productId)->where('status', '=', '1')->first();
+    }
+	
 	public function getEQReportcount($userEmail = null, $eqProductId = null) {
 		return DB::connection('mysql_second')->table('survey')->selectRaw('COUNT(*) as total')->where('email_id', '=', $userEmail)->where('product_id', '=', $eqProductId)->where('status', '=', '1')->first();
     }
 	
 	public function getCPReports($userEmail = null, $productId = null) {
+		return DB::connection('mysql_second')->table('survey')->selectRaw('*')->where('email_id', '=', $userEmail)->where('product_id', '=', $productId)->where('status', '=', '1')->orderBy('completed_date', 'DESC')->get();
+    }
+	
+	public function getSDReports($userEmail = null, $productId = null) {
 		return DB::connection('mysql_second')->table('survey')->selectRaw('*')->where('email_id', '=', $userEmail)->where('product_id', '=', $productId)->where('status', '=', '1')->orderBy('completed_date', 'DESC')->get();
     }
 	

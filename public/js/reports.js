@@ -202,6 +202,24 @@ $(document).ready(function() {
 				showContentcp(tabid);				
 			}
 		});
+	} else if(page == 'sdreportpage') {
+		var $content = $('.menu-content');
+		
+		showContentsd('introductionsd');
+		$('.nav-tabs').on('click', '.menu-btn', function(e) { 
+			e.preventDefault();
+			e.stopPropagation();
+			var classcheck = $(e.target).attr('class');
+			if(classcheck == 'dropdown-item') {
+				// scrollToContent('#overall-picture', '#equnderstandingTab', '#eq-skills-content');
+			} else {
+				var tabid = $(this).attr('id');
+				if(tabid == 'careeroccupation') {
+					
+				}
+				showContentsd(tabid);				
+			}
+		});
 	}
 	$(document).on("click", '.dateselection', function(event) {
 		var page = $('#pagename').val();
@@ -235,6 +253,8 @@ $(document).ready(function() {
 						showContentcp(activetab);    
 					} else if(page == 'eqreportpage') {
 						showContent(activetab);  
+					} else if(page == 'sdreportpage') {
+						showContentsd(activetab);  
 					}					
 				}
 			});

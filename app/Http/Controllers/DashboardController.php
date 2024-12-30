@@ -30,7 +30,7 @@ class DashboardController extends Controller
 		$teresultCount 	= Session::get('teresultCount');
 		$tdresultCount 	= Session::get('tdresultCount');
 		
-		return view('dashboard')->with(array('eqresultCount'=> $eqresultCount, 'cresultCount'=> $cresultCount));
+		return view('dashboard')->with(array('eqresultCount'=> $eqresultCount, 'cresultCount'=> $cresultCount, 'sdresultCount'=> $sdresultCount));
 	}
 	
 	public function careerexplorer(Request $request) {
