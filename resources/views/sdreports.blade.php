@@ -94,7 +94,7 @@ $pdfPath = "";
                         <a class="nav-link dropdown-toggle d-flex justify-content-between active" href="javascript:void(0);" id="yourAssessmentResultsTab">Your Social Dynamics Assessment Results
                             <span class="material-icons" onclick="toggleDropdown(event)">expand_more</span>
                           </a>
-                          <ul class="dropdown-menu show" aria-labelledby="yourAssessmentResultsTab">
+                          <ul class="dropdown-menu" aria-labelledby="yourAssessmentResultsTab">
                               <li>
                                   <a class="dropdown-item" onclick="scrollToContent('#verifying-your-results', '#yourAssessmentResultsTab', '#social-result-content')">Verifying Your Results</a>
                               </li>
@@ -105,99 +105,97 @@ $pdfPath = "";
                       </li>
 					  
                       <li class="nav-item menu-btn" role="presentation" id="socialdynamicsmover">
-                        <a class="nav-link border-0" id="social-dynamics-mover" href="mover.html">Mover</a>
+                        <a class="nav-link border-0" id="social-dynamics-mover" href="javascript:void(0);">Mover</a>
                       </li>
 					  
-                      <li class="nav-item" role="presentation">
-                        <a class="nav-link border-0" id="social-dynamics-mapper" href="mapper.html">Mapper</a>
+                      <li class="nav-item menu-btn" role="presentation" id="socialdynamicsmapper">
+                        <a class="nav-link border-0" id="social-dynamics-mapper" href="javascript:void(0);">Mapper</a>
                       </li>
 					  
-                      <li class="nav-item" role="presentation">
-                        <a class="nav-link border-0" id="social-dynamics-involver" href="involver.html">Involver</a>
+                      <li class="nav-item menu-btn" role="presentation" id="socialdynamicsinvolver">
+                        <a class="nav-link border-0" id="social-dynamics-involver" href="javascript:void(0);">Involver</a>
                       </li>
-                      <li class="nav-item" role="presentation">
-                        <a class="nav-link border-0" id="social-dynamics-integrator" href="integrator.html">Integrator</a>
+                      <li class="nav-item menu-btn" role="presentation" id="socialdynamicsintegrator">
+                        <a class="nav-link border-0" id="social-dynamics-integrator" href="javascript:void(0);">Integrator</a>
                       </li>
-                      <li class="nav-item" role="presentation">
-                        <a class="nav-link border-0" id="social-dynamics-things" href="things-common.html">Things in Common</a>
+                      <li class="nav-item menu-btn" role="presentation" id="socialdynamicsthings">
+                        <a class="nav-link border-0" id="social-dynamics-things" href="javascript:void(0);">Things in Common</a>
                       </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle d-flex justify-content-between" href="prompting-other-act.html"
-                          id="promptingOthersToAct">Prompting Others to Act  <span class="material-icons" onclick="toggleDropdown(event)">expand_more</span></a>
-                        <ul class="dropdown-menu" aria-labelledby="promptingOthersToAct">
-                          <li>
-                            <a class="dropdown-item"
-                              onclick="scrollToContent('#prescribing-and-describing-prompting', '#promptingOthersToAct', '#prampting-result-content')">Prescribing and Describing</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item"
-                              onclick="scrollToContent('#contrasting-the-two-means-prompting', '#promptingOthersToAct', '#prampting-result-content')">Contrasting the Two Means of Prompting</a>
-                          </li>
-                        </ul>
+                      <li class="nav-item dropdown menu-btn" id="promptingotheract">
+                        <a class="nav-link dropdown-toggle justify-content-between" href="javascript:void(0);"
+                              id="promptingOthersToAct">Prompting Others to Act  <span class="material-icons" onclick="toggleDropdown(event)">expand_more</span></a>
+                            <ul class="dropdown-menu" aria-labelledby="promptingOthersToAct">
+                              <li>
+                                <a class="dropdown-item"
+                                  onclick="scrollToContent('#prescribing-and-describing-prompting', '#promptingOthersToAct', '#prampting-result-content')">Prescribing and Describing</a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item"
+                                  onclick="scrollToContent('#contrasting-the-two-means-prompting', '#promptingOthersToAct', '#prampting-result-content')">Contrasting the Two Means of Prompting</a>
+                              </li>
+                            </ul>
                       </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle d-flex justify-content-between" href="focus-attention-interaction.html"
-                          id="focal-attention">Focus of Attention in an Interaction  <span class="material-icons" onclick="toggleDropdown(event)">expand_more</span></a>
-                        <ul class="dropdown-menu" aria-labelledby="focal-attention">
-                          <li>
-                            <a class="dropdown-item"
-                              onclick="scrollToContent('#what-yourself-doing', '#focal-attention', '#prampting-result-content')">What did you see yourself doing during the five minutes before the meeting began?</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item"
-                              onclick="scrollToContent('#how-yourself-processing', '#focal-attention', '#prampting-result-content')">How did you see yourself processing the ideas that were being suggested during the
-                              meeting?</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item"
-                              onclick="scrollToContent('#contrasting-focuses', '#focal-attention', '#prampting-result-content')">Contrasting the Two Focuses of Attention in an Interaction
-                            </a>
-                          </li>
-                        </ul>
+                      <li class="nav-item menu-btn dropdown" id="focusattentioninteraction">
+                        <a class="nav-link dropdown-toggle justify-content-between" href="javascript:void(0);"
+                              id="focal-attention">Focus of Attention in an Interaction  <span class="material-icons" onclick="toggleDropdown(event)">expand_more</span></a>
+                            <ul class="dropdown-menu" aria-labelledby="focal-attention">
+                              <li>
+                                <a class="dropdown-item"
+                                  onclick="scrollToContent('#what-yourself-doing', '#focal-attention', '#prampting-result-content')">What did you see yourself doing during the five minutes before the meeting began?</a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item"
+                                  onclick="scrollToContent('#how-yourself-processing', '#focal-attention', '#prampting-result-content')">How did you see yourself processing the ideas that were being suggested during the
+                                  meeting?</a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item"
+                                  onclick="scrollToContent('#contrasting-focuses', '#focal-attention', '#prampting-result-content')">Contrasting the Two Focuses of Attention in an Interaction
+                                </a>
+                              </li>
+                            </ul>
                       </li>
 
-                      <li class="nav-item" role="presentation">
+                      <li class="nav-item menu-btn" id="summarizingthingsincommon" role="presentation">
                       <a class="nav-link border-0" id="social-dynamics-things"
-                        href="summariz-common.html">Summarizing the Things In Common</a>
+                        href="javascript:void(0);">Summarizing the Things In Common</a>
                     </li>
 
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle d-flex justify-content-between" href="applications-social-dynamics.html"
-                        id="application-social-dynamic">Applications of Social Dynamics at Work
+                    <li class="nav-item dropdown menu-btn" id="applicationssocialdynamics">
+                      <a class="nav-link dropdown-toggle d-flex justify-content-between" href="javascript:void(0);" id="application-social-dynamic">Applications of Social Dynamics at Work
                         <span class="material-icons" onclick="toggleDropdown(event)">expand_more</span></a>
-                      <ul class="dropdown-menu" aria-labelledby="application-social-dynamic">
-                        <li>
-                          <a class="dropdown-item"
-                            onclick="scrollToContent('#enhanced-collaboration', '#application-social-dynamic', '#application-result-content')">Enhanced
-                            Collaboration and Teamwork
-                          </a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item"
-                            onclick="scrollToContent('#more-productive-conflict', '#application-social-dynamic', '#application-result-content')">More
-                            Productive Conflict</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item"
-                            onclick="scrollToContent('#better-decision-making', '#application-social-dynamic', '#application-result-content')">Better
-                            Decision Making
-                          </a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item"
-                            onclick="scrollToContent('#more-effective-leadership', '#application-social-dynamic', '#application-result-content')">More
-                            Effective Leadership
-                          </a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item"
-                            onclick="scrollToContent('#managing-stress', '#application-social-dynamic', '#application-result-content')">Managing
-                            Stress
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                      </ul>
+                            <ul class="dropdown-menu" aria-labelledby="application-social-dynamic">
+                              <li>
+                                <a class="dropdown-item"
+                                  onclick="scrollToContent('#enhanced-collaboration', '#application-social-dynamic', '#application-result-content')">Enhanced
+                                  Collaboration and Teamwork
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item"
+                                  onclick="scrollToContent('#more-productive-conflict', '#application-social-dynamic', '#application-result-content')">More
+                                  Productive Conflict</a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item"
+                                  onclick="scrollToContent('#better-decision-making', '#application-social-dynamic', '#application-result-content')">Better
+                                  Decision Making
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item"
+                                  onclick="scrollToContent('#more-effective-leadership', '#application-social-dynamic', '#application-result-content')">More
+                                  Effective Leadership
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item"
+                                  onclick="scrollToContent('#managing-stress', '#application-social-dynamic', '#application-result-content')">Managing
+                                  Stress
+                                </a>
+                              </li>
+                            </ul>
+						</li>
 					  
                       
                     </div>

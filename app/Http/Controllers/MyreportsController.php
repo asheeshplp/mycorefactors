@@ -169,6 +169,24 @@ class MyreportsController extends Controller
 			return view('sdreport/naturalsocialdynamics',compact('finalArr'));
 		} else if($selectedtab == 'snapshotsfourstyles') {
 			return view('sdreport/snapshotsfourstyles',compact('finalArr'));
+		} else if($selectedtab == 'socialdynamicsmover') {
+			return view('sdreport/socialdynamicsmover',compact('finalArr'));
+		} else if($selectedtab == 'socialdynamicsmapper') {
+			return view('sdreport/socialdynamicsmapper',compact('finalArr'));
+		} else if($selectedtab == 'socialdynamicsinvolver') {
+			return view('sdreport/socialdynamicsinvolver',compact('finalArr'));
+		} else if($selectedtab == 'socialdynamicsintegrator') {
+			return view('sdreport/socialdynamicsintegrator',compact('finalArr'));
+		} else if($selectedtab == 'socialdynamicsthings') {
+			return view('sdreport/socialdynamicsthings',compact('finalArr'));
+		} else if($selectedtab == 'promptingotheract') {
+			return view('sdreport/promptingotheract',compact('finalArr'));
+		} else if($selectedtab == 'focusattentioninteraction') {
+			return view('sdreport/focusattentioninteraction',compact('finalArr'));
+		} else if($selectedtab == 'summarizingthingsincommon') {
+			return view('sdreport/summarizingthingsincommon',compact('finalArr'));
+		} else if($selectedtab == 'applicationssocialdynamics') {
+			return view('sdreport/applicationssocialdynamics',compact('finalArr'));
 		} else if($selectedtab == 'yourAssessmentresults') {
 			$survey = new Survey;
 			$surveyId = $searcharray['reportid'];

@@ -768,6 +768,39 @@ function showContentsd(type) {
 				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
 				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
 				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
+			} else if(type == 'summarizingthingsincommon') {
+				$('#summarizingthingsincommon a').addClass('active');
+				$('#understandyourselves .material-icons').eq(0).show();
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
 			} else if(type == 'naturalsocialdynamics') {
 				$('#naturalsocialdynamics a').addClass('active');
 				$('#understandyourselves .material-icons').eq(0).show();
@@ -777,6 +810,123 @@ function showContentsd(type) {
 				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
 				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
 				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
+			} else if(type == 'socialdynamicsmover') {
+				$('#socialdynamicsmover a').addClass('active');
+				$('#understandyourselves .material-icons').eq(0).show();
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
+			} else if(type == 'socialdynamicsmapper') {
+				$('#socialdynamicsmapper a').addClass('active');
+				$('#understandyourselves .material-icons').eq(0).show();
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
+			} else if(type == 'socialdynamicsinvolver') {
+				$('#socialdynamicsinvolver a').addClass('active');
+				$('#understandyourselves .material-icons').eq(0).show();
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
+			} else if(type == 'socialdynamicsintegrator') {
+				$('#socialdynamicsintegrator a').addClass('active');
+				$('#understandyourselves .material-icons').eq(0).show();
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
+			} else if(type == 'socialdynamicsthings') {
+				$('#socialdynamicsthings a').addClass('active');
+				$('#understandyourselves .material-icons').eq(0).show();
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
 			} else if(type == 'snapshotsfourstyles') {
 				$('#snapshotsfourstyles a').addClass('active');
 				$('#understandyourselves .material-icons').eq(0).show();
@@ -786,6 +936,18 @@ function showContentsd(type) {
 				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
 				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
 				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
 			} else if(type == 'socialdynamicsstyles') {
 				$('#socialdynamicsstyles a').addClass('active');
 				$('#understandyourselves .material-icons').eq(0).show();
@@ -795,6 +957,18 @@ function showContentsd(type) {
 				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
 				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
 				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
 			} else if(type == 'understandyourselves') {
 				$('#understandyourselves a').eq(0).addClass('active');	
 				$('#understandyourselves').find('.dropdown-menu').removeClass('hide');
@@ -804,6 +978,18 @@ function showContentsd(type) {
 				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
 				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
 				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
 			} else if(type == 'yourAssessmentresults') {
 				$('#yourAssessmentresults a').eq(0).addClass('active');	
 				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('hide');
@@ -813,6 +999,85 @@ function showContentsd(type) {
 				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
 				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
 				$('#understandyourselves .material-icons').eq(0).show();
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
+			} else if(type == 'promptingotheract') {
+				$('#promptingotheract a').eq(0).addClass('active');	
+				$('#promptingotheract').find('.dropdown-menu').removeClass('hide');
+				$('#promptingotheract').find('.dropdown-menu').addClass('show');
+				$('#promptingotheract .material-icons').eq(0).hide();
+				
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				$('#understandyourselves .material-icons').eq(0).show();
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
+			} else if(type == 'focusattentioninteraction') {
+				$('#focusattentioninteraction a').eq(0).addClass('active');	
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('hide');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('show');
+				$('#focusattentioninteraction .material-icons').eq(0).hide();
+				
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				$('#understandyourselves .material-icons').eq(0).show();
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
+				
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('show');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('hide');
+				$('#applicationssocialdynamics .material-icons').eq(0).show();
+			} else if(type == 'applicationssocialdynamics') {
+				$('#applicationssocialdynamics a').eq(0).addClass('active');	
+				$('#applicationssocialdynamics').find('.dropdown-menu').removeClass('hide');
+				$('#applicationssocialdynamics').find('.dropdown-menu').addClass('show');
+				$('#applicationssocialdynamics .material-icons').eq(0).hide();
+				
+				$('#understandyourselves').find('.dropdown-menu').removeClass('show');
+				$('#understandyourselves').find('.dropdown-menu').addClass('hide');
+				$('#understandyourselves .material-icons').eq(0).show();
+				
+				$('#focusattentioninteraction').find('.dropdown-menu').removeClass('show');
+				$('#focusattentioninteraction').find('.dropdown-menu').addClass('hide');
+				$('#focusattentioninteraction .material-icons').eq(0).show();
+				
+				$('#yourAssessmentresults').find('.dropdown-menu').removeClass('show');
+				$('#yourAssessmentresults').find('.dropdown-menu').addClass('hide');
+				$('#yourAssessmentresults .material-icons').eq(0).show();
+				
+				$('#promptingotheract').find('.dropdown-menu').removeClass('show');
+				$('#promptingotheract').find('.dropdown-menu').addClass('hide');
+				$('#promptingotheract .material-icons').eq(0).show();
 			}
 		}
 	});

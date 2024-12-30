@@ -30,7 +30,7 @@ if(!$surveyResults) {
 } else {
 $data = $surveyResults->results;
 $survey_score = json_decode($data);
-$Integrator 	= 	$survey_score->Integrator;
+$Integrator 	= 	$survey_score->Integrator?$survey_score->Integrator:'';
 $Involver 	= 	$survey_score->Involver;
 $Mover 		= 	$survey_score->Mover;
 $Mapper 	= 	$survey_score->Mapper;
