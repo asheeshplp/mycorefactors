@@ -101,7 +101,7 @@ $tdresultCount 	= Session::get('tdresultCount');
 			}
 			?>
 			<li style="{{ $tdClass }}" class="nav-item">
-			  <a class="nav-link {{ request()->is('typediscovery*') ? 'active' : '' }}" aria-current="page" href="{{ url('myeqreport') }}">
+			  <a class="nav-link {{ request()->is('typediscovery*') ? 'active' : '' }}" aria-current="page" href="{{ url('typediscovery') }}">
 				<i class="material-icons">assessment</i>
 				<span class="nav-text">Type Discovery</span>
 			  </a>

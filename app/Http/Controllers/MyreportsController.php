@@ -90,6 +90,41 @@ class MyreportsController extends Controller
 		return view('cpreports')->with(array('resultsArr'=> $resultsArr));
 	}
 	
+	public function typediscovery() {
+		$survey = new Survey;
+		
+		$cpathProductId = 1;
+		$cpResults = '';
+		$firstPdfFullpath = 'javascript:void(0);';
+		$cpResults = $survey->getTDReports($this->userEmail, $cpathProductId);
+		$resultsArr = array();
+		if($cpResults) {
+			// $resultsArr = $eqResults[0];
+			foreach($cpResults as $key => $value) {			
+				$completedDate	=	$value->completed_date;
+				$createDate 	= 	new DateTime($completedDate);
+				$strip 			= 	$createDate->format('F d, Y');
+				$resultsArr['records'][$key]['id']				=	$value->id;
+				$resultsArr['records'][$key]['survey_id']		=	$value->survey_Id;
+				$resultsArr['records'][$key]['survey_pdf']		=	$value->PDF_path;
+				$resultsArr['records'][$key]['completedDate']	=	$strip;
+				if($key == 0) {
+					$firstDate		=	$strip;	
+					$firstSurveyid	=	$value->id;
+					$firstPdf		=	$value->PDF_path;
+					if($firstPdf) {
+						$firstPdfFullpath = 'https://pro.corefactors.com/pro'.$firstPdf;
+					}
+				}
+			}
+			$resultsArr['firstDate']		=	$firstDate;
+			$resultsArr['firstSurveyid']	=	$firstSurveyid;
+			$resultsArr['firstPdfpath']		=	$firstPdfFullpath;
+		}
+		
+		return view('tdreports')->with(array('resultsArr'=> $resultsArr));
+	}
+		
 	public function socialdynamics() {
 		$survey = new Survey;
 		
@@ -150,6 +185,64 @@ class MyreportsController extends Controller
 		}
 		echo $pdfPath;
 		exit;
+	}
+	
+	public function gettdreportcontent(Request $request) {
+		$survey = new Survey;
+		$finalArr = array();
+		$postData 	= $request->all();
+		$dataString = $postData['dataString'];
+		parse_str($dataString, $searcharray);
+		$selectedtab 		= $searcharray['selectedtab'];
+		if($selectedtab == 'introductiontd') {
+			return view('tdreport/introduction',compact('finalArr'));
+		} else if($selectedtab == 'wholetyperesults') {
+			return view('tdreport/wholetyperesults',compact('finalArr'));
+		} else if($selectedtab == 'typetable') {
+			return view('tdreport/typetable',compact('finalArr'));
+		} else if($selectedtab == 'typedimensionresults') {
+			$survey = new Survey;
+			$surveyId = $searcharray['reportid'];
+			$releaseResult = 1;
+			$isResultreleased = 1;
+			//check if this project has release result on completion or not.
+			$projectObj = $survey->getProjectid($surveyId);
+			$projectId = $projectObj->project_id;
+			//get project details from Id
+			
+			$projectDetailsObj	=	$survey->getProjectdetailbyid($projectId);
+			
+			$surveyResults 		= $survey->getSurveybyid($surveyId);	
+			
+			$releaseResult 		= $projectDetailsObj->release_results;
+			
+			if($releaseResult == 0) {
+				$isResultreleased 	= $projectDetailsObj->is_result_released;				
+			}
+			
+			return view('tdreport/typedimensionresults',compact('surveyId', 'isResultreleased', 'surveyResults'));			
+		} else if($selectedtab == 'fourdichotomies') {
+			$survey = new Survey;
+			$surveyId = $searcharray['reportid'];
+			$releaseResult = 1;
+			$isResultreleased = 1;
+			//check if this project has release result on completion or not.
+			$projectObj = $survey->getProjectid($surveyId);
+			$projectId = $projectObj->project_id;
+			//get project details from Id
+			
+			$projectDetailsObj	=	$survey->getProjectdetailbyid($projectId);
+			
+			$surveyResults 		= $survey->getSurveybyid($surveyId);	
+			
+			$releaseResult 		= $projectDetailsObj->release_results;
+			
+			if($releaseResult == 0) {
+				$isResultreleased 	= $projectDetailsObj->is_result_released;				
+			}
+			
+			return view('tdreport/fourdichotomies',compact('surveyId', 'isResultreleased', 'surveyResults'));
+		}
 	}
 	
 	public function getsdreportcontent(Request $request) {

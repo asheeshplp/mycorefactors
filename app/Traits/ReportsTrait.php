@@ -34,6 +34,9 @@ trait ReportsTrait
 		//Get Social Completed Report Count		
 		$socialResult = $survey->getSocialReportcount($userEmail, $sdynProductId);
 		$sdresultCount = $socialResult->total;
+		//Get Type Discovery Report Count		
+		$typediscoveryResult = $survey->getDiscoveryReportcount($userEmail, $typediscProductId);
+		$tdresultCount = $typediscoveryResult->total;
 		
 		
 		Session::put('eqresultCount', $eqresultCount);

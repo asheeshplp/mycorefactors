@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
 	Route::any('/getreportcontent',[MyreportsController::class, 'getreportcontent']);
 	Route::any('/getcpreportcontent',[MyreportsController::class, 'getcpreportcontent']);
 	Route::any('/getsdreportcontent',[MyreportsController::class, 'getsdreportcontent']);
+	Route::any('/gettdreportcontent',[MyreportsController::class, 'gettdreportcontent']);
 	Route::any('/getreportpdffile',[MyreportsController::class, 'getreportpdffile']);
 	Route::any('/exploreeq',[MyreportsController::class, 'exploreeq']);
 	Route::any('/careerexplorer',[MyreportsController::class, 'careerexplorer']);
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
 	Route::any('/externalresourcescp',[MyreportsController::class, 'externalresourcescp']);
 	Route::get('/careerpath',[MyreportsController::class, 'careerpath'])->name('careerpath');
 	Route::get('/socialdynamics',[MyreportsController::class, 'socialdynamics'])->name('socialdynamics');
+	Route::get('/typediscovery',[MyreportsController::class, 'typediscovery'])->name('typediscovery');
 	Route::any('/careerexplorer',[DashboardController::class, 'careerexplorer'])->name('careerexplorer');
 	Route::post('/searchcareer',[DashboardController::class, 'searchcareer'])->name('searchcareer');
 });
