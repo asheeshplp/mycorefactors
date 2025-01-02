@@ -810,6 +810,8 @@ function showContenttd(type) {
 				$('#fourdichotomies').find('.dropdown-menu').removeClass('show');
 				$('#fourdichotomies').find('.dropdown-menu').addClass('hide');
 				$('#fourdichotomies .material-icons').eq(0).show();
+				
+				$('.typehtml').html($('#reporttype').html());
 			}
 		}
 	});

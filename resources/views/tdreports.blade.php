@@ -94,13 +94,13 @@ $pdfPath = "";
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="whole-type-results">
                             <li>
-                                <a class="dropdown-item" onclick="scrollToContent('#leadership-methods', '#whole-type-results', '#whole-type-resultsTabContent')">INFP Leadership Methods</a>
+                                <a class="dropdown-item" onclick="scrollToContent('#leadership-methods', '#whole-type-results', '#whole-type-resultsTabContent')"><span class="typehtml"></span> Leadership Methods</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" onclick="scrollToContent('#learning-preference', '#whole-type-results', '#whole-type-resultsTabContent')">INFP Learning Preference</a>
+                                <a class="dropdown-item" onclick="scrollToContent('#learning-preference', '#whole-type-results', '#whole-type-resultsTabContent')"><span class="typehtml"></span> Learning Preference</a>
                             </li>
                             <li>
-                              <a class="dropdown-item" onclick="scrollToContent('#work-and-activity', '#whole-type-results', '#whole-type-resultsTabContent')">INFP Work and Activity Preferences</a>
+                              <a class="dropdown-item" onclick="scrollToContent('#work-and-activity', '#whole-type-results', '#whole-type-resultsTabContent')"><span class="typehtml"></span> Work and Activity Preferences</a>
                             </li>                           
                         </ul>
                         </li>

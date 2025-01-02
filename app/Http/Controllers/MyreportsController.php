@@ -7,6 +7,7 @@ use DB;
 use Auth;
 use DateTime;
 use App\Models\Survey;
+use App\Models\ReportText;
 
 class MyreportsController extends Controller
 {
@@ -188,7 +189,8 @@ class MyreportsController extends Controller
 	}
 	
 	public function gettdreportcontent(Request $request) {
-		$survey = new Survey;
+		$survey 	= new Survey;
+		$reportText = new ReportText;
 		$finalArr = array();
 		$postData 	= $request->all();
 		$dataString = $postData['dataString'];
@@ -197,7 +199,119 @@ class MyreportsController extends Controller
 		if($selectedtab == 'introductiontd') {
 			return view('tdreport/introduction',compact('finalArr'));
 		} else if($selectedtab == 'wholetyperesults') {
-			return view('tdreport/wholetyperesults',compact('finalArr'));
+			$survey = new Survey;
+			$surveyId = $searcharray['reportid'];
+			$releaseResult = 1;
+			$isResultreleased = 1;
+			//check if this project has release result on completion or not.
+			$projectObj = $survey->getProjectid($surveyId);
+			$projectId = $projectObj->project_id;
+			//get project details from Id
+			
+			$projectDetailsObj	=	$survey->getProjectdetailbyid($projectId);
+			
+			$surveyResults 		= $survey->getSurveybyid($surveyId);	
+			
+			$releaseResult 		= $projectDetailsObj->release_results;
+			
+			if($releaseResult == 0) {
+				$isResultreleased 	= $projectDetailsObj->is_result_released;				
+			}
+			if($surveyResults) {
+				$data = $surveyResults->results;
+				$survey_score = json_decode($data);
+				$pti_result = '';
+
+				if ($survey_score->E > $survey_score->I) {
+						$pti_result .= 'E';
+				} elseif ($survey_score->E == $survey_score->I) {
+					$pti_result .= 'I';
+				} else {
+					$pti_result .= 'I';
+				}
+
+				if ($survey_score->S > $survey_score->N) {
+					$pti_result .= 'S';
+				} elseif ($survey_score->S == $survey_score->N) {
+					$pti_result .= 'S';
+				} else {
+					$pti_result .= 'N';
+				}
+
+				if ($survey_score->T > $survey_score->F) {
+					$pti_result .= 'T';
+				} elseif ($survey_score->T == $survey_score->F) {
+					switch ($row['gender']) {
+						case 1:
+							// echo "Male";
+							$pti_result .= 'F';
+							break;
+						case 2:
+							// echo "Female";
+							$pti_result .= 'T';
+							break;
+						case 3:
+							// echo "Gender Variant/Non-Conforming";
+							$pti_result .= 'T';
+							break;
+						case 4:
+							// echo "Transgender Female";
+							$pti_result .= 'T';
+							break;
+						case 5:
+							// echo "Transgender Male";
+							$pti_result .= 'F';
+							break;
+						case 6:
+							// echo "Not Listed";
+							$pti_result .= 'T';
+							break;
+						case 7:
+							// echo "Prefer Not to Answer";
+							$pti_result .= 'T';
+							break;
+						default:
+							// echo "Not Completed";
+							$pti_result .= 'T';
+							break;
+					}
+					/* if($row['gender'] == 1) {
+						$pti_result .= 'F';
+					} elseif($row['gender'] == 2){
+						$pti_result .= 'T';
+					} */
+				} else {
+					$pti_result .= 'F';
+				}
+
+				if ($survey_score->J > $survey_score->P) {
+					$pti_result .= 'J';
+				} elseif ($survey_score->J == $survey_score->P) {
+					$pti_result .= 'P';
+				} else {
+					$pti_result .= 'P';
+				}
+			}
+			$textObj = $reportText->getTextbytype($pti_result);
+			
+			$report_type = '';
+			$report_image = '';
+			$snapshot = '';
+			$leadership_methods = '';
+			$learning_preference = '';
+			$work_and_activity_preferences = '';
+			
+			if($textObj) {
+				$report_type 					= 	$textObj->report_type;
+				$report_image 					= 	$textObj->report_image;
+				$snapshot 						= 	$textObj->snapshot;
+				$leadership_methods 			= 	$textObj->leadership_methods;
+				$learning_preference 			= 	$textObj->learning_preference;
+				$work_and_activity_preferences 	= 	$textObj->work_and_activity_preferences;
+			}
+			
+			return view('tdreport/wholetyperesults',compact('isResultreleased', 'report_type', 'report_image', 'snapshot', 'leadership_methods', 'learning_preference', 'work_and_activity_preferences'));
+			
 		} else if($selectedtab == 'typetable') {
 			return view('tdreport/typetable',compact('finalArr'));
 		} else if($selectedtab == 'typedimensionresults') {
