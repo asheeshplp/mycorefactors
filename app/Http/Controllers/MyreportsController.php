@@ -274,6 +274,7 @@ class MyreportsController extends Controller
 			if($releaseResult == 0) {
 				$isResultreleased 	= $projectDetailsObj->is_result_released;				
 			}
+			// echo '<pre>'; print_r($surveyResults); die;
 			return view('tereport/elementstyperesults',compact('surveyId', 'isResultreleased', 'surveyResults'));
 		} else if($selectedtab == 'typedimensionresults') {
 			$survey = new Survey;
