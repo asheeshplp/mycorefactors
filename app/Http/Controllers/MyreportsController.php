@@ -125,6 +125,41 @@ class MyreportsController extends Controller
 		
 		return view('tdreports')->with(array('resultsArr'=> $resultsArr));
 	}
+	
+	public function typeelements() {
+		$survey = new Survey;
+		
+		$cpathProductId = 2;
+		$cpResults = '';
+		$firstPdfFullpath = 'javascript:void(0);';
+		$cpResults = $survey->getTEReports($this->userEmail, $cpathProductId);
+		$resultsArr = array();
+		if($cpResults) {
+			// $resultsArr = $eqResults[0];
+			foreach($cpResults as $key => $value) {			
+				$completedDate	=	$value->completed_date;
+				$createDate 	= 	new DateTime($completedDate);
+				$strip 			= 	$createDate->format('F d, Y');
+				$resultsArr['records'][$key]['id']				=	$value->id;
+				$resultsArr['records'][$key]['survey_id']		=	$value->survey_Id;
+				$resultsArr['records'][$key]['survey_pdf']		=	$value->PDF_path;
+				$resultsArr['records'][$key]['completedDate']	=	$strip;
+				if($key == 0) {
+					$firstDate		=	$strip;	
+					$firstSurveyid	=	$value->id;
+					$firstPdf		=	$value->PDF_path;
+					if($firstPdf) {
+						$firstPdfFullpath = 'https://pro.corefactors.com/pro'.$firstPdf;
+					}
+				}
+			}
+			$resultsArr['firstDate']		=	$firstDate;
+			$resultsArr['firstSurveyid']	=	$firstSurveyid;
+			$resultsArr['firstPdfpath']		=	$firstPdfFullpath;
+		}
+		
+		return view('tereports')->with(array('resultsArr'=> $resultsArr));
+	}
 		
 	public function socialdynamics() {
 		$survey = new Survey;
@@ -188,6 +223,199 @@ class MyreportsController extends Controller
 		exit;
 	}
 	
+	public function gettereportcontent(Request $request) {
+		$survey 	= new Survey;
+		$finalArr = array();
+		$postData 	= $request->all();
+		$dataString = $postData['dataString'];
+		parse_str($dataString, $searcharray);
+		$selectedtab 		= $searcharray['selectedtab'];
+		if($selectedtab == 'introductionte') {
+			return view('tereport/introduction',compact('finalArr'));
+		}if($selectedtab == 'typeformation') {
+			return view('tereport/typeformation',compact('finalArr'));
+		} else if($selectedtab == 'fourdichotomies') {
+			$survey = new Survey;
+			$surveyId = $searcharray['reportid'];
+			$releaseResult = 1;
+			$isResultreleased = 1;
+			//check if this project has release result on completion or not.
+			$projectObj = $survey->getProjectid($surveyId);
+			$projectId = $projectObj->project_id;
+			//get project details from Id
+			
+			$projectDetailsObj	=	$survey->getProjectdetailbyid($projectId);
+			
+			$surveyResults 		= $survey->getSurveybyid($surveyId);	
+			
+			$releaseResult 		= $projectDetailsObj->release_results;
+			
+			if($releaseResult == 0) {
+				$isResultreleased 	= $projectDetailsObj->is_result_released;				
+			}
+			
+			return view('tereport/fourdichotomies',compact('surveyId', 'isResultreleased', 'surveyResults'));
+		} else if($selectedtab == 'elementstyperesults') {
+			$survey = new Survey;
+			$surveyId = $searcharray['reportid'];
+			$releaseResult = 1;
+			$isResultreleased = 1;
+			//check if this project has release result on completion or not.
+			$projectObj = $survey->getProjectid($surveyId);
+			$projectId = $projectObj->project_id;
+			//get project details from Id
+			
+			$projectDetailsObj	=	$survey->getProjectdetailbyid($projectId);
+			
+			$surveyResults 		= $survey->getSurveybyid($surveyId);	
+			
+			$releaseResult 		= $projectDetailsObj->release_results;
+			
+			if($releaseResult == 0) {
+				$isResultreleased 	= $projectDetailsObj->is_result_released;				
+			}
+			return view('tereport/elementstyperesults',compact('surveyId', 'isResultreleased', 'surveyResults'));
+		} else if($selectedtab == 'typedimensionresults') {
+			$survey = new Survey;
+			$surveyId = $searcharray['reportid'];
+			$releaseResult = 1;
+			$isResultreleased = 1;
+			//check if this project has release result on completion or not.
+			$projectObj = $survey->getProjectid($surveyId);
+			$projectId = $projectObj->project_id;
+			//get project details from Id
+			
+			$projectDetailsObj	=	$survey->getProjectdetailbyid($projectId);
+			
+			$surveyResults 		= $survey->getSurveybyid($surveyId);	
+			
+			$releaseResult 		= $projectDetailsObj->release_results;
+			
+			if($releaseResult == 0) {
+				$isResultreleased 	= $projectDetailsObj->is_result_released;				
+			}
+			// echo '<pre>'; print_r($surveyResults); die;
+			return view('tereport/typedimensionresults',compact('surveyId', 'isResultreleased', 'surveyResults'));
+		} else if($selectedtab == 'typetable') {
+			return view('tereport/typetable',compact('finalArr'));
+		} else if($selectedtab == 'wholetyperesults') {
+			$survey = new Survey;
+			$reportText = new ReportText;
+			$surveyId = $searcharray['reportid'];
+			$releaseResult = 1;
+			$isResultreleased = 1;
+			//check if this project has release result on completion or not.
+			$projectObj = $survey->getProjectid($surveyId);
+			$projectId = $projectObj->project_id;
+			//get project details from Id
+			
+			$projectDetailsObj	=	$survey->getProjectdetailbyid($projectId);
+			
+			$surveyResults 		= $survey->getSurveybyid($surveyId);	
+			
+			$releaseResult 		= $projectDetailsObj->release_results;
+			
+			if($releaseResult == 0) {
+				$isResultreleased 	= $projectDetailsObj->is_result_released;				
+			}
+			if($surveyResults) {
+				$data = $surveyResults->results;
+				$survey_score = json_decode($data);
+				$pti_result = '';
+
+				if ($survey_score->E > $survey_score->I) {
+						$pti_result .= 'E';
+				} elseif ($survey_score->E == $survey_score->I) {
+					$pti_result .= 'I';
+				} else {
+					$pti_result .= 'I';
+				}
+
+				if ($survey_score->S > $survey_score->N) {
+					$pti_result .= 'S';
+				} elseif ($survey_score->S == $survey_score->N) {
+					$pti_result .= 'S';
+				} else {
+					$pti_result .= 'N';
+				}
+
+				if ($survey_score->T > $survey_score->F) {
+					$pti_result .= 'T';
+				} elseif ($survey_score->T == $survey_score->F) {
+					switch ($survey_score->gender) {
+						case 1:
+							// echo "Male";
+							$pti_result .= 'F';
+							break;
+						case 2:
+							// echo "Female";
+							$pti_result .= 'T';
+							break;
+						case 3:
+							// echo "Gender Variant/Non-Conforming";
+							$pti_result .= 'T';
+							break;
+						case 4:
+							// echo "Transgender Female";
+							$pti_result .= 'T';
+							break;
+						case 5:
+							// echo "Transgender Male";
+							$pti_result .= 'F';
+							break;
+						case 6:
+							// echo "Not Listed";
+							$pti_result .= 'T';
+							break;
+						case 7:
+							// echo "Prefer Not to Answer";
+							$pti_result .= 'T';
+							break;
+						default:
+							// echo "Not Completed";
+							$pti_result .= 'T';
+							break;
+					}
+					/* if($row['gender'] == 1) {
+						$pti_result .= 'F';
+					} elseif($row['gender'] == 2){
+						$pti_result .= 'T';
+					} */
+				} else {
+					$pti_result .= 'F';
+				}
+
+				if ($survey_score->J > $survey_score->P) {
+					$pti_result .= 'J';
+				} elseif ($survey_score->J == $survey_score->P) {
+					$pti_result .= 'P';
+				} else {
+					$pti_result .= 'P';
+				}
+			}
+			$textObj = $reportText->getTextbytype($pti_result);
+			
+			$report_type = '';
+			$report_image = '';
+			$snapshot = '';
+			$leadership_methods = '';
+			$learning_preference = '';
+			$work_and_activity_preferences = '';
+			
+			if($textObj) {
+				$report_type 					= 	$textObj->report_type;
+				$report_image 					= 	$textObj->report_image;
+				$snapshot 						= 	$textObj->snapshot;
+				$leadership_methods 			= 	$textObj->leadership_methods;
+				$learning_preference 			= 	$textObj->learning_preference;
+				$work_and_activity_preferences 	= 	$textObj->work_and_activity_preferences;
+			}
+			
+			return view('tereport/wholetyperesults',compact('isResultreleased', 'report_type', 'report_image', 'snapshot', 'leadership_methods', 'learning_preference', 'work_and_activity_preferences'));
+			
+		}
+	}
+	
 	public function gettdreportcontent(Request $request) {
 		$survey 	= new Survey;
 		$reportText = new ReportText;
@@ -241,7 +469,7 @@ class MyreportsController extends Controller
 				if ($survey_score->T > $survey_score->F) {
 					$pti_result .= 'T';
 				} elseif ($survey_score->T == $survey_score->F) {
-					switch ($row['gender']) {
+					switch ($survey_score->gender) {
 						case 1:
 							// echo "Male";
 							$pti_result .= 'F';

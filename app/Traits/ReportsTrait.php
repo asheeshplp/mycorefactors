@@ -37,6 +37,9 @@ trait ReportsTrait
 		//Get Type Discovery Report Count		
 		$typediscoveryResult = $survey->getDiscoveryReportcount($userEmail, $typediscProductId);
 		$tdresultCount = $typediscoveryResult->total;
+		//Get Type Elements Report Count		
+		$typeelementsResult = $survey->getElementsReportcount($userEmail, $typeelmtProductId);
+		$teresultCount = $typeelementsResult->total;
 		
 		
 		Session::put('eqresultCount', $eqresultCount);

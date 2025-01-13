@@ -115,7 +115,7 @@ if ($survey_score->J > $survey_score->P) {
 	<h3>Your Assessment Results</h3>
 	<div class="row">
 	  <div class="col-md-8">
-		<p class="mb-4">The Core Factors Type Discovery assessment helps you identify which of the 16
+		<p class="mb-4">The Core Factors Type Elements assessment helps you identify which of the 16
 		  personality types best describes you. The results of your responses to the four
 		  psychological dichotomies can be summed up in the common four-letter
 		  psychological type code indicating your preferred personality type pattern.
@@ -194,7 +194,7 @@ if ($survey_score->J > $survey_score->P) {
 	  </p>
 
 	  <div class="row-colum">
-		<div class="text-center p-2 title-bg-modified">Your Core Factors Type Discovery Assessment Results</div>
+		<div class="text-center p-2 title-bg-modified">Your Core Factors Type Elements Assessment Results</div>
 		<div class="overflow-x-auto">
 		<div class="colum_box_wrap wight_bg colum_box_wrap_1 d-flex modified-report-global report-2-section justify-content-center">
 		  <div class="colum_chart type-element-chart type-element-full-chart">
@@ -285,8 +285,8 @@ if ($survey_score->J > $survey_score->P) {
 	<hr/>
 
 	<div class="btn-info d-flex justify-content-center gap-3">
-		<a class=" btn-info-comman btn-previous" n-next" onclick="showContenttd('fourdichotomies');" href="javascript:void(0);">Previous</a>
-		<a class="btn-info-comman btn-next" n-next" onclick="showContenttd('wholetyperesults');" href="javascript:void(0);">Next</a>
+		<a class=" btn-info-comman btn-previous" n-next" onclick="showContentte('fourdichotomies');" href="javascript:void(0);">Previous</a>
+		<a class="btn-info-comman btn-next" n-next" onclick="showContentte('wholetyperesults');" href="javascript:void(0);">Next</a>
 	</div>
   </div>
 </div>                        

@@ -817,6 +817,142 @@ function showContenttd(type) {
 	});
 }
 
+function showContentte(type) {
+	if($(window).data("ajaxRUnning")){
+       return;
+    }
+    $(window).data("ajaxRUnning",true);
+	var previoustab = $('#selectedtab').val();
+	$('#selectedtab').val(type);
+	$('#myTabContent').html('');
+	$('.loader').show();
+	var dataString = $("#eqform").serialize();				
+	var data = {
+		"_token": $('#token').val(),
+		"dataString": dataString
+	};
+	$.ajax({
+		type: 'POST',
+		url: 'gettereportcontent',
+		data: data,
+		datatype: 'json',
+		success: function(result) {
+			$('.loader').hide(); 
+			$(window).data("ajaxRUnning",false);
+			$('#myTabContent').html(result);
+			$('.menu-btn a').removeClass('active');
+			if(type == 'introductionte') {
+				$('#introductionte a').addClass('active');
+				
+				$('#fourdichotomies').find('.dropdown-menu').removeClass('show');
+				$('#fourdichotomies').find('.dropdown-menu').addClass('hide');
+				$('#fourdichotomies .material-icons').eq(0).show();
+				
+				$('#wholetyperesults').find('.dropdown-menu').removeClass('show');
+				$('#wholetyperesults').find('.dropdown-menu').addClass('hide');
+				$('#wholetyperesults .material-icons').eq(0).show();
+				
+				$('#elementstyperesults').find('.dropdown-menu').removeClass('show');
+				$('#elementstyperesults').find('.dropdown-menu').addClass('hide');
+				$('#elementstyperesults .material-icons').eq(0).show();
+				
+			} else if(type == 'typetable') {
+				$('#typetable a').addClass('active');
+				
+				$('#fourdichotomies').find('.dropdown-menu').removeClass('show');
+				$('#fourdichotomies').find('.dropdown-menu').addClass('hide');
+				$('#fourdichotomies .material-icons').eq(0).show();
+				
+				$('#wholetyperesults').find('.dropdown-menu').removeClass('show');
+				$('#wholetyperesults').find('.dropdown-menu').addClass('hide');
+				$('#wholetyperesults .material-icons').eq(0).show();
+				
+				$('#elementstyperesults').find('.dropdown-menu').removeClass('show');
+				$('#elementstyperesults').find('.dropdown-menu').addClass('hide');
+				$('#elementstyperesults .material-icons').eq(0).show();
+			} else if(type == 'typeformation') {
+				$('#typeformation a').addClass('active');
+				
+				$('#fourdichotomies').find('.dropdown-menu').removeClass('show');
+				$('#fourdichotomies').find('.dropdown-menu').addClass('hide');
+				$('#fourdichotomies .material-icons').eq(0).show();
+				
+				$('#wholetyperesults').find('.dropdown-menu').removeClass('show');
+				$('#wholetyperesults').find('.dropdown-menu').addClass('hide');
+				$('#wholetyperesults .material-icons').eq(0).show();
+				
+				$('#elementstyperesults').find('.dropdown-menu').removeClass('show');
+				$('#elementstyperesults').find('.dropdown-menu').addClass('hide');
+				$('#elementstyperesults .material-icons').eq(0).show();
+			} else if(type == 'fourdichotomies') {
+				$('#fourdichotomies a').eq(0).addClass('active');	
+				$('#fourdichotomies').find('.dropdown-menu').removeClass('hide');
+				$('#fourdichotomies').find('.dropdown-menu').addClass('show');
+				$('#fourdichotomies .material-icons').eq(0).hide();
+				
+				$('#wholetyperesults').find('.dropdown-menu').removeClass('show');
+				$('#wholetyperesults').find('.dropdown-menu').addClass('hide');
+				$('#wholetyperesults .material-icons').eq(0).show();
+				
+				$('#elementstyperesults').find('.dropdown-menu').removeClass('show');
+				$('#elementstyperesults').find('.dropdown-menu').addClass('hide');
+				$('#elementstyperesults .material-icons').eq(0).show();
+				
+			} else if(type == 'typedimensionresults') {
+				$('#typedimensionresults a').addClass('active');
+				
+				$('#fourdichotomies').find('.dropdown-menu').removeClass('show');
+				$('#fourdichotomies').find('.dropdown-menu').addClass('hide');
+				$('#fourdichotomies .material-icons').eq(0).show();
+				
+				$('#wholetyperesults').find('.dropdown-menu').removeClass('show');
+				$('#wholetyperesults').find('.dropdown-menu').addClass('hide');
+				$('#wholetyperesults .material-icons').eq(0).show();
+				
+				$('#elementstyperesults').find('.dropdown-menu').removeClass('show');
+				$('#elementstyperesults').find('.dropdown-menu').addClass('hide');
+				$('#elementstyperesults .material-icons').eq(0).show();
+			} else if(type == 'wholetyperesults') {
+				$('#wholetyperesults a').eq(0).addClass('active');
+				
+				$('#wholetyperesults').find('.dropdown-menu').removeClass('hide');
+				$('#wholetyperesults').find('.dropdown-menu').addClass('show');
+				$('#wholetyperesults .material-icons').eq(0).show();
+				
+				$('#fourdichotomies').find('.dropdown-menu').removeClass('show');
+				$('#fourdichotomies').find('.dropdown-menu').addClass('hide');
+				$('#fourdichotomies .material-icons').eq(0).show();				
+				
+				$('#elementstyperesults').find('.dropdown-menu').removeClass('show');
+				$('#elementstyperesults').find('.dropdown-menu').addClass('hide');
+				$('#elementstyperesults .material-icons').eq(0).show();
+			} else if(type == 'elementstyperesults') {
+				$('#elementstyperesults a').eq(0).addClass('active');
+				
+				$('#elementstyperesults').find('.dropdown-menu').removeClass('hide');
+				$('#elementstyperesults').find('.dropdown-menu').addClass('show');
+				$('#elementstyperesults .material-icons').eq(0).show();
+				
+				$('#fourdichotomies').find('.dropdown-menu').removeClass('show');
+				$('#fourdichotomies').find('.dropdown-menu').addClass('hide');
+				$('#fourdichotomies .material-icons').eq(0).show();				
+				
+				$('#wholetyperesults').find('.dropdown-menu').removeClass('show');
+				$('#wholetyperesults').find('.dropdown-menu').addClass('hide');
+				$('#wholetyperesults .material-icons').eq(0).show();				
+			
+			}
+			
+			$('.typehtml').html($('#reporttype').html());
+		},error: function () {
+            $('.loader').hide(); 
+            alert("An error occured posting to the server");
+            $(window).data("ajaxRUnning",false);
+
+        }
+	});
+}
+
 function showContentsd(type) {
 	var previoustab = $('#selectedtab').val();
 	$('#selectedtab').val(type);
